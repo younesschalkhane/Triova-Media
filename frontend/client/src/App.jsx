@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Markup from '../Pages/Markup'
 
 import './App.css'
 
@@ -11,6 +12,7 @@ function App() {
        <h1 class="text-3xl font-bold underline">
     Hello world!
   </h1>
+      <Markup/>
     </>
   )
 }
