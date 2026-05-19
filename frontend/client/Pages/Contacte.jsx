@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 export default function Contacte() {
   const [form, setForm] = useState({
@@ -25,7 +26,7 @@ export default function Contacte() {
 
         {/* LEFT FORM */}
         <div className="bg-white rounded-3xl shadow-xl p-10 scale-105 h-200 flex flex-col justify-center   ">
-          <h2 className="text-2xl font-semibold mb-6 ">
+          <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent ">
             Laissez votre message
           </h2>
 
@@ -92,13 +93,13 @@ export default function Contacte() {
 
         {/* RIGHT SIDE */}
         <div className="flex flex-col justify-center">
-          <h1 className="text-5xl font-bold text-violet-900 mb-4">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent b mb-4">
             Formulaire de contact
           </h1>
 
           <p className="text-gray-600 mb-6">
-            Veuillez remplir le formulaire ci-dessous et notre équipe de
-            <span className="font-semibold"> Triova Marketing </span>
+            Veuillez remplir le formulaire ci-dessous et 
+            <span className="font-bold"> notre équipe de Triova Marketing </span>
             vous répondra dans les plus brefs délais.
           </p>
 
@@ -106,7 +107,7 @@ export default function Contacte() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
             <div className="bg-white p-4 rounded-xl shadow flex gap-3">
-              <div className="w-10 h-10 bg-blue-200 rounded-full"></div>
+              <div className="w-12 h-10 bg-blue-200 rounded-full"></div>
               <div>
                 <h3 className="font-semibold"> Bureau</h3>
                 <p className="text-sm text-gray-500"> Casablanca, Maroc</p>
@@ -128,7 +129,7 @@ export default function Contacte() {
             </div>
 
             <div className="bg-white p-4 rounded-xl shadow flex gap-3">
-              <div className="w-10 h-10 bg-purple-200 rounded-full"></div>
+              <div className="w-12 h-10 bg-purple-200 rounded-full"></div>
               <div>
                 <h3 className="font-semibold">Horaires d'ouverture</h3>
                 <p className="text-sm text-gray-500">
@@ -156,24 +157,37 @@ export default function Contacte() {
           </div>
 
           {/* SOCIAL RIGHT */}
-          <div className="absolute right-6 bottom-10 flex gap-3">
-            <div className="mt-6">
-            <p className="font-semibold mb-2">Suivez-nous :</p>
-            </div>
+          <div className="mt-6 flex items-center justify-around">
 
-            <div className="w-12 h-12 bg-blue-600 text-white flex items-center justify-center rounded-full cursor-pointer">
-              f
-            </div>
-            <div className="w-12 h-12 bg-pink-500 text-white flex items-center justify-center rounded-full cursor-pointer">
-              ig
-            </div>
-            <div className="w-12 h-12 bg-blue-800 text-white flex items-center justify-center rounded-full cursor-pointer">
-              in
-            </div>
-          </div>
+  {/* LEFT TEXT */}
+  <p className="font-bold text-gray-900">
+    Suivez-nous :
+  </p>
+
+  {/* RIGHT ICONS */}
+  <div className="flex gap-4">
+
+    <div className="w-10 h-10 bg-blue-600 text-white flex items-center justify-center rounded-full cursor-pointer
+    hover:scale-110 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/50 transition duration-300">
+      <FaFacebookF />
+    </div>
+
+    <div className="w-10 h-10 bg-pink-500 text-white flex items-center justify-center rounded-full cursor-pointer
+    hover:scale-110 hover:bg-pink-600 hover:shadow-lg hover:shadow-pink-500/50 transition duration-300">
+      <FaInstagram />
+    </div>
+
+    <div className="w-10 h-10 bg-blue-800 text-white flex items-center justify-center rounded-full cursor-pointer
+    hover:scale-110 hover:bg-blue-900 hover:shadow-lg hover:shadow-blue-800/50 transition duration-300">
+      <FaLinkedinIn />
+    </div>
+
+  </div>
+
+</div>
 
         </div>
       </div>
     </div>
-  );
+  ); 
 }
