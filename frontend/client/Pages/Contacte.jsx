@@ -20,7 +20,7 @@ export default function Contacte() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-violet-300 to-violet-100 flex items-center justify-center p-6 relative">
+    <div className="min-h-screen flex items-center justify-center p-6 relative">
 
       <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 bg-gray-100 p-10 rounded-3xl">
 
@@ -123,7 +123,7 @@ export default function Contacte() {
               <div>
                 <h3 className="font-semibold">Téléphone</h3>
                 <p className="text-sm text-gray-500">
-                  +212 566422178
+                  +212 56642217
                 </p>
               </div>
             </div>
@@ -137,9 +137,6 @@ export default function Contacte() {
                 </p>
                 <p className="text-sm text-gray-500">
                   Samedi : 9h30 – 13h00
-                </p>
-                <p className="text-sm text-gray-500">
-                  Dimanche : Fermé
                 </p>
               </div>
             </div>
@@ -183,7 +180,6 @@ export default function Contacte() {
     </div>
 
   </div>
-
 </div>
 
         </div>
