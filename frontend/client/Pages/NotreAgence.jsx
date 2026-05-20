@@ -140,17 +140,13 @@ function NotreAgence() {
         <div className="relative z-10 max-w-6xl mx-auto text-center">
 
           {/* Small Title */}
-          <p className="bg-gradient-to-r from-sky-500 to-violet-600 bg-clip-text text-transparent uppercase tracking-[6px] text-sm mb-6 font-semibold">
-            — Notre Mission
-          </p>
 
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight from-violet-600 to-sky-500">
-          
-            <span className="bg-gradient-to-r from-sky-500 via-cyan-400 to-violet-600 bg-clip-text text-transparent">
-              Votre croissance digitale
-            </span>
-          </h1>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-violet-50 text-violet-600 text-xs font-semibold tracking-widest uppercase mb-4">
+
+          Notre Mission
+
+          </span>
+
 
           {/* Description */}
           <p className="mt-8 max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
@@ -171,34 +167,7 @@ function NotreAgence() {
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
-            {/* Stats */}
-            <div className="absolute bottom-8 left-8 flex gap-14 flex-wrap text-left">
-
-              <div>
-                <h2 className="text-5xl font-bold text-sky-400">+120</h2>
-
-                <p className="text-white uppercase tracking-widest text-sm mt-1">
-                  Projets livrés
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-5xl font-bold text-sky-400">98%</h2>
-
-                <p className="text-white uppercase tracking-widest text-sm mt-1">
-                  Clients satisfaits
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-5xl font-bold text-sky-400">5★</h2>
-
-                <p className="text-white uppercase tracking-widest text-sm mt-1">
-                  Note moyenne
-                </p>
-              </div>
-
-            </div>
+           
           </div>
         </div>
       </section>
