@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../src/assets/logo1.png";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <footer className="pt-16 pb-8 px-6 md:px-20 bg-white relative overflow-hidden">
@@ -72,7 +72,8 @@ export default function Footer() {
             Liens rapides
           </h3>
 
-          <div className="space-y-5 text-gray-500">
+          <div>
+            <ul className="space-y-5 text-gray-500">
             <Link
               to="/"
               className="group flex items-center justify-between hover:text-sky-500 transition cursor-pointer"
@@ -85,7 +86,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              to="/NotreAgence"
+              to="/Notre-agence"
               className="group flex items-center justify-between hover:text-sky-500 transition cursor-pointer"
             >
               À propos
@@ -95,7 +96,8 @@ export default function Footer() {
               </span>
             </Link>
 
-            <Link  to="/Services"
+            <Link 
+             to="/Services"
             className="group flex items-center justify-between hover:text-sky-500 transition cursor-pointer">
               Nos services
 
@@ -105,7 +107,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              to="/contact"
+              to="/Contact"
               className="group flex items-center justify-between hover:text-sky-500 transition cursor-pointer"
             >
               Contactez-nous
@@ -114,6 +116,7 @@ export default function Footer() {
                 →
               </span>
             </Link>
+            </ul>
           </div>
         </div>
 

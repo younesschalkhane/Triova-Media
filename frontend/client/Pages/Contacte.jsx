@@ -19,8 +19,40 @@ export default function Contacte() {
     alert("Message envoyé !");
   };
 
+ 
+   
+
   return (
+    <div>
+ <section className="relative overflow-hidden bg-violet-300 py-32">
+      
+      {/* Background skew top */}
+      
+
+      {/* Background skew bottom */}
+      <div className="absolute bottom-0 left-0 w-full h-24 bg-white skew-y-2 origin-bottom-left"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
+        
+        {/* Small line */}
+        <div className="w-10 h-[2px] bg-white mx-auto mb-8 opacity-80"></div>
+
+        <h2 className="text-gray-600 text-2xl md:text-xl font-bold leading-relaxed">
+         “Chez Troiva Media, nous croyons que chaque marque mérite une présence digitale forte et mémorable.
+          À travers la création web, l’intelligence artificielle, le branding, 
+          les campagnes publicitaires et le référencement SEO,
+          nous mettons notre créativité et notre expertise au service des entreprises qui souhaitent évoluer,
+          innover et se démarquer dans un monde en constante évolution.”
+        </h2>
+
+        <p className="text-gray-300 mt-10 text-lg tracking-wide">
+         Troiva media
+        </p>
+      </div>
+    </section>
     <div className="min-h-screen flex items-center justify-center p-6 relative">
+
 
       <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 bg-gray-100 p-10 rounded-3xl">
 
@@ -164,26 +196,33 @@ export default function Contacte() {
   {/* RIGHT ICONS */}
   <div className="flex gap-4">
 
-    <div className="w-10 h-10 bg-blue-600 text-white flex items-center justify-center rounded-full cursor-pointer
+    <a
+    href="https://www.facebook.com/"
+     className="w-10 h-10 bg-blue-600 text-white flex items-center justify-center rounded-full cursor-pointer
     hover:scale-110 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/50 transition duration-300">
       <FaFacebookF />
-    </div>
+   </a>
 
-    <div className="w-10 h-10 bg-pink-500 text-white flex items-center justify-center rounded-full cursor-pointer
+    <a 
+    href="https://www.instagram.com/"
+     className="w-10 h-10 bg-pink-500 text-white flex items-center justify-center rounded-full cursor-pointer
     hover:scale-110 hover:bg-pink-600 hover:shadow-lg hover:shadow-pink-500/50 transition duration-300">
       <FaInstagram />
-    </div>
+    </a>
 
-    <div className="w-10 h-10 bg-blue-800 text-white flex items-center justify-center rounded-full cursor-pointer
+    <a
+    href="https://www.linkedin.com/"
+     className="w-10 h-10 bg-blue-800 text-white flex items-center justify-center rounded-full cursor-pointer
     hover:scale-110 hover:bg-blue-900 hover:shadow-lg hover:shadow-blue-800/50 transition duration-300">
       <FaLinkedinIn />
-    </div>
+    </a>
 
   </div>
 </div>
 
         </div>
       </div>
+    </div>
     </div>
   ); 
 }
