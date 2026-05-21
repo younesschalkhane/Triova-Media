@@ -2,6 +2,7 @@ import React from 'react'
 import jadara from "../../src/assets/jadara.png";
 import gomycode from "../../src/assets/gomycode.webp";
 import indh from "../../src/assets/indh-logo.png";
+import { Link } from 'react-router-dom';
 function Partener() {
      const partners = [
       { name: "Jadara Foundation", logo: jadara, description: "Partenaire stratégique pour l'autonomisation et le développement des jeunes talents." },
@@ -10,7 +11,7 @@ function Partener() {
     ];
   return (
     <div>
-      <section className="w-full bg-gradient-to-b from-white via-slate-50 to-white py-20 px-6">
+      <section className="w-full bg-gradient-to-b from-white via-slate-50 to-white py-20 px-6 ">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
           <span className="inline-block px-4 py-1.5 rounded-full bg-violet-50 text-violet-600 text-xs font-semibold tracking-widest uppercase mb-4">
@@ -46,12 +47,12 @@ function Partener() {
           ))}
         </div>
 
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-gray-600 text-sm">
+        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-gray-600 text-sm ">
           <span className="h-px w-12 bg-slate-200" />
           <span>Vous souhaitez devenir partenaire ?</span>
-          <a href="#contact" className="font-semibold text-sky-500 hover:text-violet-600 transition-colors">
+          <Link to="/Contact" className="font-semibold text-sky-500 hover:text-violet-600 transition-colors">
             Contactez-nous →
-          </a>
+          </Link>
           <span className="h-px w-12 bg-slate-200" />
         </div>
       </div>

@@ -77,7 +77,7 @@ function Services() {
 
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             <span className="text-sky-500">Des solutions digitales</span>{" "}
-            <span className="text-violet-600">modernes & performantes</span>
+            <span className="text-violet-600">modernes et performantes</span>
           </h2>
 
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
@@ -123,16 +123,7 @@ function Services() {
           })}
         </div>
 
-        {/* CTA */}
-        <div className="mt-14 flex justify-center">
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-600 px-7 py-3 text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
-            Découvrir Plus
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+       
       </div>
     </section>
   );
