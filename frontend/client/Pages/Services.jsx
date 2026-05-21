@@ -1,230 +1,306 @@
 import React from 'react'
 import image from "./image.PNG"
-import { motion } from "framer-motion"
-import image1 from "./image1.jpg"
-import image2 from "./image2.jpg"
-import image3 from "./image3.jpg"
-import image4 from "./image4.jpg"
+
 
 function Services() {
   return (
  <div>
-    {/* <section className=' bg-sky-500 pt-20 pb-20 flex justify-center gap-20  '>
-          <div>
-                <h1 className='w-150 text-6xl font-bold  '>Nos Services Marketing Digital au Maroc</h1>
-
-          </div>
-
-          <div>
-                 <p className='w-130 pt-30 font-semibold text-white '>De la stratégie à l’exécution, de la visibilité à la conversion — Hooked Digital
-                   est votre partenaire 360° pour dominer le digital au Maroc.
-                   SEO, publicité, web, social media, branding, data.</p>
-
-          </div>
-
-
-    </section> */}
-
-
    
+    <section className="min-h-screen bg-gradient-to-br from-[#0b0220] via-violet-600 to-sky-500 text-white px-6 py-16 ">
 
+      
+      {/* Title */}
+
+      <div className="flex justify-around gap-15 pt-20  ">
+
+      <div className=''>
+        <span className="bg-violet-500/20 text-sky-400 px-4 py-2 rounded-full text-sm tracking-widest uppercase">
+
+          Nos Services
+
+        </span>
+
+        <h1 className="text-5xl font-bold mt-6 leading-tight bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent">
+
+          Des solutions digitales <br />
+
+        <span className="text-sky-400">adaptées à vos besoins</span>
+
+        </h1>
+
+        <p className="text-gray-300 mt-6 text-lg w-120 pb-10">
+
+          Nous proposons des services modernes pour développer
+
+          votre présence digitale et booster votre activité.
+
+        </p>
+        <button className="mt-6 md:mt-0 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-violet-400 hover:scale-105 transition duration-300 font-semibold">Demmandez Votre Projet</button>
+        </div>
+        <img src={image} alt="Service" className="w-150 " />
+
+      </div>
+
+</section>  
+
+   {/* Heading */}
     
-    <div className="relative overflow-hidden min-h-screen bg-white">
-       
+     <section className='pt-15'>
+      <div className='flex justify-around '>
+        <div className='flex-col'>
+      <h2 className='text-5xl font-bold leading-tight bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent'>Un Système Digital </h2>
+      <h3 className='text-5xl font-bold leading-tight bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent'> Centralisé et Innovant</h3>
+      </div>
+      <p className='w-150 pt-18'>Chaque service apporte sa propre valeur. 
+        Réunis, ils créent une synergie digitale qui renforce chaque point de contact.</p>
+</div>
 
-      {/* Daira safra fo9 */}
-      <motion.div className="absolute -top-40 -left-20 w-[500px] h-[500px] bg-sky-500 rounded-full opacity-70" animate={{ y: [0, -40, 0], x: [0, 20, 0]}} transition={{ repeat: Infinity, duration: 6 }} ></motion.div>
+     </section>
 
-      {/* Daira rose */}
-      <motion.div className="absolute top-20 right-10 w-[450px] h-[450px] bg-violet-300 rounded-full" animate={{ y: [0, -40, 0], x: [0, 20, 0]}} transition={{ repeat: Infinity, duration: 6 }} ></motion.div>
+      {/* boxs */}
 
-      {/* Daira violette */}
-      <motion.div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-violet-600 rounded-full opacity-60" animate={{ y: [0, -40, 0], x: [0, 20, 0]}} transition={{ repeat: Infinity, duration: 6 }} ></motion.div>
-
-      {/* Dwira khadra sghira */}
-      <motion.div className="absolute top-52 left-[55%] w-16 h-16 bg-sky-400 rounded-full" animate={{ y: [0, -40, 0], x: [0, 20, 0]}} transition={{ repeat: Infinity, duration: 6 }} ></motion.div>
-
-      {/* Content */}
-      <div className="relative z-10 flex items-center justify-between px-20 py-32">
+       <section className="py-24 bg-white pb-8">
+  <div className="max-w-7xl mx-auto px-6">
+    
+    {/* Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      {/* Card 1 */}
+      <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-100">
         
-        <div className="max-w-l">
-          <motion.p className="text-gray-600 mb-4 text-xl font-semibold" initial={{ y: -150, opacity: 0 }}
-             animate={{ y: 0, opacity: 1 }}
-             transition={{
-             duration: 1,
-             delay: 0.3,
-            }}>
-            Bienvenue
-          </motion.p>
-
-          <motion.h1 className="text-8xl font-bold leading-tight pt- pb-10 bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent" initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }}transition={{duration: 1.2,ease: "easeOut", }} >
-           Nos Services Marketing Digital au Maroc
-          </motion.h1>
-          
-
-          <button className="mt-10 bg-violet-400 text-white hover:bg-violet-600 transition  text-xl font-semibold  px-8 py-4 rounded-2xl ">
-            Demandez votre projet
-          </button>
+        {/* Icon */}
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white mb-8">
+          🔍
         </div>
 
-        <img
-          src={image}
-          alt=""
-          className="w-[700px]"
-        />
+        {/* Category */}
+        <span className="uppercase tracking-[0.2em] text-xs font-semibold text-gray-400">
+          Visibilité Organique
+        </span>
+
+        {/* Title */}
+        <h3 className="mt-4 text-3xl font-bold text-gray-900">
+          SEO & Référencement
+        </h3>
+
+        {/* Desc */}
+        <p className="mt-5 text-gray-600 leading-relaxed">
+          Audit technique, stratégie de contenu et optimisation SEO pour
+          améliorer votre visibilité sur Google.
+        </p>
+
+        {/* Features */}
+        <ul className="mt-8 space-y-4">
+          {[
+            "Audit SEO technique complet",
+            "Recherche de mots-clés",
+            "Optimisation on-page",
+            "Stratégie backlinks",
+          ].map((item, index) => (
+            <li
+              key={index}
+              className="flex items-center gap-3 text-gray-700"
+            >
+              <div className="w-2 h-2 rounded-full bg-sky-500"></div>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        {/* Footer */}
+        <div className="mt-10 pt-6 border-t border-gray-100 flex items-center justify-between">
+          <span className="text-sm text-gray-400">Résultat type</span>
+
+          <div className="flex items-center gap-2 text-sky-600 font-semibold">
+            +184% trafic
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Card 2 */}
+      <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-100">
+        
+        {/* Icon */}
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-sky-500 flex items-center justify-center text-white mb-8">
+          🚀
+        </div>
+
+        {/* Category */}
+        <span className="uppercase tracking-[0.2em] text-xs font-semibold text-gray-400">
+          Google Ads • Meta • TikTok
+        </span>
+
+        {/* Title */}
+        <h3 className="mt-4 text-3xl font-bold text-gray-900">
+          Publicité Payante (SEA)
+        </h3>
+
+        {/* Desc */}
+        <p className="mt-5 text-gray-600 leading-relaxed">
+          Campagnes data-driven optimisées pour maximiser le ROAS et générer
+          une croissance rentable.
+        </p>
+
+        {/* Features */}
+        <ul className="mt-8 space-y-4">
+          {[
+            "Tracking & architecture",
+            "Création visuelle",
+            "A/B testing",
+            "Reporting ROAS",
+          ].map((item, index) => (
+            <li
+              key={index}
+              className="flex items-center gap-3 text-gray-700"
+            >
+              <div className="w-2 h-2 rounded-full bg-violet-500"></div>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        {/* Footer */}
+        <div className="mt-10 pt-6 border-t border-gray-100 flex items-center justify-between">
+          <span className="text-sm text-gray-400">Résultat type</span>
+
+          <div className="flex items-center gap-2 text-violet-600 font-semibold">
+            ROAS x4.2
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-
-   <section>
-
-      <div className='flex-col justify-items-center pt-10 text-center pb-20 '>
-        <h2 className='text-5xl font-bold'>Un Écosystème Digital Complet et Synchronisé</h2>
-        <p className='w-110 pt-6 font-semibold text-gray-600'>Chaque service est puissant seul. 
-          Ensemble, ils créent un système de croissance où chaque canal renforce les autres.</p>
+  </div>
+</section>
+ 
+ <section className="py-24 bg-white pt-0">
+  <div className="max-w-7xl mx-auto px-6">
+    
+    {/* Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      {/* Card 3 */}
+      <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-sky-100">
         
-      </div>   
-    
-    
+        {/* Icon */}
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500 to-violet-500 flex items-center justify-center text-white mb-8">
+          🔍
+        </div>
 
-      {/* section des boxs */}
+        {/* Category */}
+        <span className="uppercase tracking-[0.2em] text-xs font-semibold text-gray-400">
+          Création Site Web 
+        </span>
 
-       <section className="dark:bg-gray-100 dark:text-gray-800">
-	<div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
-		{/* <a rel="noopener noreferrer" href="#" className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50">
-			<img src={image1} alt="" className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7  " />
-			<div className="p-6 space-y-2 lg:col-span-5 pt-1">
-				<h3 className="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">Création Site Web</h3>
-				
-				<p className='pt-3'>Création de sites vitrines modernes, boutiques e-commerce performantes sous Shopify et WooCommerce, développement WordPress sur mesure et refontes complètes pour moderniser votre présence digitale.
-           Nous concevons des interfaces premium, rapides et 100% responsive avec une approche mobile-first, une optimisation SEO intégrée et une expérience utilisateur pensée pour maximiser la conversion et renforcer votre image de marque.</p>
-             <div className='flex gap-4 pt-2'>
-           <p className='rounded-4xl bg-violet-400 text-white p-2 w-30 flex justify-center'>WordPress</p>
-            <p className='rounded-4xl bg-violet-400 text-white p-2 w-35 flex justify-center'>WooCommerce</p>
-            </div>
-              <div  className='flex gap-4 pt-1'>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-30 flex justify-center'>Site Vitrine</p>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-25 flex justify-center'>Shopify</p>
-                </div> 
+        {/* Title */}
+        <h3 className="mt-4 text-3xl font-bold text-gray-900">
+          Programmation des Sites Web
+        </h3>
 
-			</div>
-		</a> */}
-		<div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			<a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50">
-				<img  className="object-cover w-full rounded h-55 " src={image2} alt="" />
-				<div className="p-6 space-y-2">
-					<h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">Campagnes Social Media</h3>
-					
-					<p>Conception et gestion de campagnes publicitaires sur les réseaux sociaux (Facebook, Instagram, TikTok, LinkedIn) pour accroître votre visibilité et toucher une audience qualifiée. 
-            Stratégies ciblées, contenus engageants et publicités optimisées pour augmenter vos conversions.</p>
-            <div className='flex gap-4 pt-2'>
-           <p className='rounded-4xl bg-violet-400 text-white p-2 w-30 flex justify-center'>Google Ads</p>
-           <p className='rounded-4xl bg-violet-400 text-white p-2 w-30 flex justify-center'>Facebook Ads</p>
-            </div>
-             <div  className='flex gap-4 pt-1'>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-35 flex justify-center'>Instagram Ads</p>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-25 flex justify-center'>TikTok</p>
-                </div>
-				</div>
-			</a>
-			<a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50">
-				<img  className="object-cover w-full rounded h-55 " src={image3} alt="" />
-				<div className="p-6 space-y-2">
-					<h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">SEO & Référencement</h3>
-					
-					<p>Optimisation SEO complète pour améliorer la visibilité de votre site sur les moteurs de recherche. Nous travaillons le contenu, les mots-clés et la structure technique afin d’augmenter votre positionnement sur Google, 
-            attirer un trafic qualifié et générer des résultats durables.</p>
-            <div  className='flex gap-4 pt-6'>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-35 flex justify-center'>SEO Technique</p>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-25 flex justify-center'>SEO Local</p>
-             </div>
-                <div  className='flex gap-4 pt-1'>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-30 flex justify-center'>Audit SEO</p>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-20 flex justify-center'>GEO</p>
-                </div>
+        {/* Desc */}
+        <p className="mt-5 text-gray-600 leading-relaxed">
+          Nous développons des sites web modernes, rapides et entièrement sur mesure pour répondre aux besoins spécifiques de votre activité. Chaque projet est conçu avec une attention particulière portée à la performance,
+           l’expérience utilisateur et l’évolutivité.
+        </p>
 
-				</div>
-			</a>
-			<a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50">
-				<img  className="object-cover w-full rounded h-55 dark:bg-gray-500" src={image4} alt="" />
-				<div className="p-6 space-y-2">
-					<h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">Identité Visuelle</h3>
-					
-					<p>Création d’une identité visuelle unique et cohérente qui reflète parfaitement votre marque et vos valeurs.Nous concevons des logos modernes, des chartes graphiques complètes, des palettes de couleurs et des éléments visuels harmonisés afin de renforcer votre image de marque, 
-            améliorer votre reconnaissance.</p>
-             <div  className='flex gap-4 pt-1'>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-30 flex justify-center'>Typography</p>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-20 flex justify-center'>Logo</p>
-                </div>
-                <div  className='flex gap-4 pt-1'>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-30 flex justify-center'>Style Guide</p>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-20 flex justify-center'>Colors</p>
-                </div>
+        {/* Features */}
+        <ul className="mt-8 space-y-4">
+          {[
+            "Développement front-end moderne & responsive",
+            "Interfaces fluides et optimisées UX/UI",
+            "Intégration de fonctionnalités dynamiques",
+            "Code propre, scalable et maintenable",
+          ].map((item, index) => (
+            <li
+              key={index}
+              className="flex items-center gap-3 text-gray-700"
+            >
+              <div className="w-2 h-2 rounded-full bg-sky-500"></div>
+              {item}
+            </li>
+          ))}
+        </ul>
 
-				</div>
-			</a>
-			<a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50 hidden sm:block">
-				<img role="presentation" className="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://source.unsplash.com/random/480x360?4" />
-				<div className="p-6 space-y-2">
-					<h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-					<span className="text-xs dark:text-gray-600">January 24, 2021</span>
-					<p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-				</div>
-			</a>
-			<a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50 hidden sm:block">
-				<img role="presentation" className="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://source.unsplash.com/random/480x360?5" />
-				<div className="p-6 space-y-2">
-					<h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-					<span className="text-xs dark:text-gray-600">January 25, 2021</span>
-					<p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-				</div>
-			</a>
-			<a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50 hidden sm:block">
-				<img role="presentation" className="object-cover w-full rounded h-44 dark:bg-gray-500" src="https://source.unsplash.com/random/480x360?6" />
-				<div className="p-6 space-y-2">
-					<h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-					<span className="text-xs dark:text-gray-600">January 26, 2021</span>
-					<p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-				</div>
-			</a>
+        {/* Footer */}
+        <div className="mt-10 pt-6 border-t border-gray-100 flex items-center justify-between">
+          <span className="text-sm text-gray-400">Résultat type</span>
 
-		</div>
-    <a rel="noopener noreferrer" href="#" className="block max-w-sm gap-1  mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 ">
-			<img src={image1} alt="" className="object-cover w-150 h-64 rounded sm:h-96 lg:col-span-7  " />
-			<div className=" space-y-2 lg:col-span-5 pt-1   ">
-				<h3 className="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">Création Site Web</h3>
-				
-				<p className='pt-3 w-118'>Création de sites vitrines modernes, boutiques e-commerce performantes sous Shopify et WooCommerce, développement WordPress sur mesure et refontes complètes pour moderniser votre présence digitale.
-           Nous concevons des interfaces premium, rapides et 100% responsive avec une approche mobile-first, une optimisation SEO intégrée et une expérience utilisateur pensée pour maximiser la conversion et renforcer votre image de marque.</p>
-             <div className='flex gap-4 pt-2'>
-           <p className='rounded-4xl bg-violet-400 text-white p-2 w-30 flex justify-center'>WordPress</p>
-            <p className='rounded-4xl bg-violet-400 text-white p-2 w-35 flex justify-center'>WooCommerce</p>
-            </div>
-              <div  className='flex gap-4 pt-1'>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-30 flex justify-center'>Site Vitrine</p>
-                <p className='rounded-4xl bg-violet-400 text-white p-2 w-25 flex justify-center'>Shopify</p>
-                </div> 
+          <div className="flex items-center gap-2 text-sky-600 font-semibold">
+            +184% trafic
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+        </div>
+      </div>
 
-			</div>
-		</a>
-		
-	</div>
-</section> 
+      {/* Card 4 */}
+      <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-violet-100">
+        
+        {/* Icon */}
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-sky-500 flex items-center justify-center text-white mb-8">
+          🚀
+        </div>
 
-     
-  
+        {/* Category */}
+        <span className="uppercase tracking-[0.2em] text-xs font-semibold text-gray-400">
+          COMMUNAUTE & ENGAGEMENT
+        </span>
+
+        {/* Title */}
+        <h3 className="mt-4 text-3xl font-bold text-gray-900">
+          Social Media
+        </h3>
+
+        {/* Desc */}
+        <p className="mt-5 text-gray-600 leading-relaxed">
+          Stratégie éditoriale, production de contenu et community management.
+           On transforme vos abonnés en ambassadeurs.
+        </p>
+
+        {/* Features */}
+        <ul className="mt-8 space-y-4">
+          {[
+            "Stratégie & ligne éditoriale",
+            "Production photo, vidéo, motion",
+            "Community management 7j/7",
+            "Influence & partenariats créateurs",
+          ].map((item, index) => (
+            <li
+              key={index}
+              className="flex items-center gap-3 text-gray-700"
+            >
+              <div className="w-2 h-2 rounded-full bg-violet-500"></div>
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        {/* Footer */}
+        <div className="mt-10 pt-6 border-t border-gray-100 flex items-center justify-between">
+          <span className="text-sm text-gray-400">Résultat type</span>
+
+          <div className="flex items-center gap-2 text-violet-600 font-semibold">
+            ROAS x4.2
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
 
 
-
-
-
-
-
-
-
- </section>
 
 
 
@@ -232,6 +308,8 @@ function Services() {
 
 
 </div>
+
+
   )
 }
 
