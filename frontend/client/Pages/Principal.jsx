@@ -6,7 +6,7 @@ import Services from './ComponentAcceuil/Services';
 import Apropos from './ComponentAcceuil/Apropos';
 import ProjetsRealises from './ComponentAcceuil/ProjetsRealises';
 import Avis from './ComponentAcceuil/Avis';
-
+import Realisations from './ComponentAcceuil/Realisations';
 
 
 
@@ -18,9 +18,9 @@ function Principal() {
 <Partener/>
  <Services/> 
 <Apropos/> 
-<ProjetsRealises/>
-<Avis/>
 
+<Avis/>
+<Realisations/>
     </div>
   )
 }

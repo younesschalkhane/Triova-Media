@@ -2,21 +2,42 @@ import React from "react";
 import { CheckCircle2, Calendar, ArrowUpRight } from "lucide-react";
 
 const projetsRealises = [
-  {
-    title: "Plateforme E-commerce Mode",
-    client: "Boutique Élégance",
-    category: "Développement Web & SEO",
-    year: "2024",
-    description:
-      "Création d'une boutique en ligne complète avec paiement sécurisé, gestion de stock et optimisation SEO avancée.",
-    results: ["+180% de ventes", "+250% trafic organique", "Note SEO 95/100"],
-    link: "#",
-  },
+  
+   {
+  title: "Boutique Scarf By Hassna",
+  client: "Scarf By Hassna",
+  category: "E-commerce & Design",
+  year: "2026",
+  description:
+    "Création d’une boutique YouCan moderne spécialisée dans les accessoires et foulards avec une expérience utilisateur fluide et un design élégant.",
+  results: ["Design moderne", "Boutique responsive", "Navigation rapide"],
+  link: "https://scarfbyhassna.youcan.store/",
+},
+{
+  title: "Fostank Store",
+  client: "Fostank",
+  category: "Développement E-commerce",
+  year: "2026",
+  description:
+    "Développement d’une boutique en ligne dédiée à la mode féminine avec optimisation mobile et mise en valeur des produits.",
+  results: ["Expérience mobile optimisée", "Présentation produits premium", "Site rapide & fluide"],
+  link: "https://fostank.youcan.store/",
+},
+{
+  title: "Twin Store By Fati",
+  client: "Twin Store By Fati",
+  category: "E-commerce & Branding",
+  year: "2026",
+  description:
+    "Conception d’un store YouCan moderne avec identité visuelle attractive pour améliorer la présence digitale de la marque.",
+  results: ["Identité visuelle moderne", "Interface intuitive", "Meilleure présence en ligne"],
+  link: "https://twin-storebyfati.youcan.store/",
+},
   {
     title: "Campagne Meta Ads Immobilier",
     client: "Agence Atlas Immo",
     category: "Paid Advertising",
-    year: "2024",
+    year: "2026",
     description:
       "Lancement d'un funnel de lead generation performant avec landing pages optimisées et campagnes ciblées.",
     results: ["+1200 leads qualifiés", "ROI x4", "CPL réduit de 60%"],
@@ -26,7 +47,7 @@ const projetsRealises = [
     title: "Identité Visuelle Restaurant",
     client: "Saveurs du Maroc",
     category: "Branding & Design",
-    year: "2023",
+    year: "2026",
     description:
       "Refonte complète de l'identité visuelle : logo, charte graphique, menus et supports de communication.",
     results: ["Brand recognition +90%", "Engagement social x3", "Récompense design"],
@@ -36,7 +57,7 @@ const projetsRealises = [
     title: "Stratégie Social Media",
     client: "FitZone Gym",
     category: "Content Creation & SMM",
-    year: "2024",
+    year: "2026",
     description:
       "Création de contenus TikTok et Instagram qui ont propulsé la marque en tête des salles de sport locales.",
     results: ["+50K followers", "+340% engagement", "+200 inscriptions/mois"],
@@ -64,7 +85,7 @@ function ProjetsRealises() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projetsRealises.map((p, index) => (
             <div
               key={index}
