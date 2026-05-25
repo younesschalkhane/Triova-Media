@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-
+import logo from "../src/assets/logo1.png";
 export default function Contacte() {
   const [form, setForm] = useState({
     name: "",
@@ -24,33 +24,58 @@ export default function Contacte() {
 
   return (
     <div>
- <section className="relative overflow-hidden bg-violet-300 py-32">
-      
-      {/* Background skew top */}
-      
+ {/* CONTACT HERO SECTION */}
+<section className="relative overflow-hidden py-28 bg-gradient-to-br from-sky-100 via-sky-50 to-violet-100">
 
-      {/* Background skew bottom */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-white skew-y-2 origin-bottom-left"></div>
+  {/* Background shapes */}
+  <div className="absolute top-0 left-0 w-72 h-72 bg-sky-200/30 rounded-full blur-3xl"></div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
-        
-        {/* Small line */}
-        <div className="w-10 h-[2px] bg-white mx-auto mb-8 opacity-80"></div>
+  <div className="absolute bottom-0 right-0 w-80 h-80 bg-violet-200/30 rounded-full blur-3xl"></div>
 
-        <h2 className="text-gray-600 text-2xl md:text-xl font-bold leading-relaxed">
-         “Chez Troiva Media, nous croyons que chaque marque mérite une présence digitale forte et mémorable.
-          À travers la création web, l’intelligence artificielle, le branding, 
-          les campagnes publicitaires et le référencement SEO,
-          nous mettons notre créativité et notre expertise au service des entreprises qui souhaitent évoluer,
-          innover et se démarquer dans un monde en constante évolution.”
-        </h2>
+  {/* Grid effect */}
 
-        <p className="text-gray-300 mt-10 text-lg tracking-wide">
-         Troiva media
-        </p>
-      </div>
-    </section>
+  {/* Content */}
+  <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+
+    {/* Badge */}
+    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white shadow-sm mb-6">
+      <div className="w-2 h-2 rounded-full bg-sky-500"></div>
+
+      <span className="text-sm font-medium text-slate-600">
+        Contact Triova Media
+      </span>
+    </div>
+
+    {/* Title */}
+    <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+
+      <span className="bg-gradient-to-r from-sky-500 to-violet-600 bg-clip-text text-transparent">
+        Donnons vie à votre
+      </span>
+
+      <br />
+
+      <span className="bg-gradient-to-r from-sky-500 to-violet-600 bg-clip-text text-transparent">
+        présence digitale
+      </span>
+
+    </h1>
+
+    {/* Description */}
+    <p className="max-w-3xl mx-auto text-lg text-slate-600 leading-relaxed">
+
+      Chez <span className="font-semibold text-slate-800">Triova Media</span>,
+      nous accompagnons les entreprises dans leur croissance digitale grâce
+      à des solutions modernes en création web, branding, SEO,
+      intelligence artificielle et campagnes publicitaires.
+
+    </p>
+
+  </div>
+  {/* Bottom shape */}
+  <div className="absolute bottom-0 left-0 w-full h-20 bg-white skew-y-2 origin-bottom-left"></div>
+
+</section>
     <div className="min-h-screen flex items-center justify-center p-6 relative">
 
 

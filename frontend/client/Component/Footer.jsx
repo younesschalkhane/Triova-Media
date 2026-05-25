@@ -1,10 +1,21 @@
 import React from "react";
 import logo from "../src/assets/logo1.png";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp , FaRobot } from "react-icons/fa";
 import { Link } from 'react-router-dom'
+import { useState } from "react";
+
 export default function Footer() {
+  const [openChat, setOpenChat] = useState(false);
+  const [message, setMessage] = useState("");
+
+const [messages, setMessages] = useState([
+  {
+    sender: "bot",
+    text: "👋 Bonjour et bienvenue chez Triova Media !",
+  },
+]);
   return (
-    <footer className="pt-16 pb-8 px-6 md:px-20 bg-white relative overflow-hidden">
+    <footer className="pt-16 pb-8 px-6 md:px-20 bg-gradient-to-br from-sky-100 via-violet-50 to-violet-100 relative overflow-hidden">
 
       {/* TOP CTA */}
       <div className="text-center border-t border-gray-200 pt-12">
@@ -176,7 +187,7 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM FOOTER */}
-      <div className="border-t border-gray-200 mt-20 pt-6 flex flex-col md:flex-row items-center justify-between gap-5">
+      <div className="border-t border-gray-200 mt-20 pt-6 flex flex-col md:flex-row items-center justify-evenly gap-5">
 
         {/* LEFT */}
         <p className="text-gray-500 text-sm text-center md:text-left">
@@ -218,15 +229,69 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* FLOATING WHATSAPP */}
-      <a
-        href="https://wa.me/21256642217"
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-6 right-6 w-16 h-16 rounded-2xl bg-green-500 text-white flex items-center justify-center text-3xl shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300"
-      >
-        <FaWhatsapp />
-      </a>
+      {/* CHATBOT BUTTON */}
+<button
+  onClick={() => setOpenChat(!openChat)}
+  className="fixed bottom-6 right-6 z-50 group"
+>
+
+  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-sky-500 to-violet-600 blur-xl opacity-60"></div>
+
+  <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-r from-sky-500 to-violet-600 text-white flex items-center justify-center text-3xl shadow-xl hover:scale-110 transition-all duration-300">
+
+    <FaRobot />
+
+  </div>
+
+</button>
+
+{/* CHATBOX */}
+{
+  openChat && (
+
+    <div className="fixed bottom-28 right-6 w-80 bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden z-50">
+
+      {/* Header */}
+      <div className="bg-gradient-to-r from-sky-500 to-violet-600 p-4 text-white">
+
+        <h3 className="font-semibold text-lg">
+          Triova Assistant
+        </h3>
+
+        <p className="text-sm text-white/80">
+          Comment pouvons-nous vous aider ?
+        </p>
+
+      </div>
+
+      {/* Messages */}
+      <div className="p-4 h-80 overflow-y-auto">
+
+        <div className="bg-slate-100 p-3 rounded-2xl text-sm text-slate-700 w-fit max-w-[80%]">
+          👋 Bonjour et bienvenue chez Triova Media !
+        </div>
+
+      </div>
+
+      {/* Input */}
+      <div className="p-4 border-t flex gap-2">
+
+        <input
+          type="text"
+          placeholder="Écrivez votre message..."
+          className="flex-1 border rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-sky-500"
+        />
+
+        <button className="px-4 rounded-xl bg-gradient-to-r from-sky-500 to-violet-600 text-white">
+          Envoyer
+        </button>
+
+      </div>
+
+    </div>
+
+  )
+}
     </footer>
   );
 }
