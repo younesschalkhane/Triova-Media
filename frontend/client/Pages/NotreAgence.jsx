@@ -143,13 +143,13 @@ function NotreAgence() {
       </section>
 
       {/* ================= TEAM SECTION ================= */}
-      <section className="py-24 px-6 bg-gradient-to-r from-sky-500 to-violet-600">
+      <section className="py-24 px-6 bg-gradient-to-br  from-sky-100 via-violet-50 to-violet-100">
 
         <div className="max-w-6xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Notre Équipe
+          <h2 className="text-4xl md:text-5xl font-bold ">
+           <span className="text-sky-500">Notre</span>    <span className="text-violet-600">Équipe</span>
           </h2>
-          <p className="text-white/80 mt-3">
+          <p className="text-gray-600 mt-3">
             Une équipe passionnée qui construit vos projets digitaux
           </p>
         </div>
