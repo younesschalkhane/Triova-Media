@@ -22,11 +22,11 @@ function Apropos() {
         {/* Left Content */}
         <div>
 
-          <h2 className="mt-4 text-5xl font-bold leading-tight text-slate-900">
+          <h2 className="mt-4 text-5xl font-bold leading-tight text-sky-500">
             Une équipe passionnée
             <br />
-            au service de{" "}
-            <span className="text-violet-600">vos projets</span>
+            {" "}
+            <span className="text-violet-600">au service de vos projets</span>
           </h2>
 
           <p className="mt-6 text-lg leading-relaxed text-slate-600 max-w-xl">

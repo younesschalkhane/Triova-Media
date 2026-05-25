@@ -5,7 +5,7 @@ function Header() {
   return (
     <div>
 
-		<header className="p-4 bg-white/80 backdrop-blur-md border-b border-gray-100 text-gray-600">
+		<header className="p-4 bg-gradient-to-br from-sky-100 via-violet-50 to-violet-100 backdrop-blur-md border-b border-gray-100 text-gray-600">
       <div className="container flex justify-between h-16 mx-auto items-center">
 
         {/* Logo */}

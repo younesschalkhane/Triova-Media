@@ -4,6 +4,9 @@ import Hero from './ComponentAcceuil/Hero';
 import Partener from './ComponentAcceuil/Partener';
 import Services from './ComponentAcceuil/Services';
 import Apropos from './ComponentAcceuil/Apropos';
+import ProjetsRealises from './ComponentAcceuil/ProjetsRealises';
+import Avis from './ComponentAcceuil/Avis';
+
 
 
 
@@ -14,7 +17,10 @@ function Principal() {
 <Hero/>
 <Partener/>
  <Services/> 
-<Apropos/>    
+<Apropos/> 
+<ProjetsRealises/>
+<Avis/>
+
     </div>
   )
 }
