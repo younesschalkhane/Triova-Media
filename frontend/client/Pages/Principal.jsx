@@ -18,9 +18,9 @@ function Principal() {
 <Partener/>
  <Services/> 
 <Apropos/> 
-
+<ProjetsRealises/>
 <Avis/>
-<Realisations/>
+
     </div>
   )
 }
