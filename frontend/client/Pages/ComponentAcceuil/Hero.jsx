@@ -4,7 +4,7 @@ import heroImg from '../../src/assets/hero.png'
 function Hero() {
   return (
       <div>
-      <section className="bg-white mb-0">
+      <section className=" mb-0">
         <div className="container flex flex-col lg:flex-row items-center justify-evenly gap- p-6 mx-auto sm:py-12 lg:py-24">
 
           {/* Left Content */}
@@ -25,14 +25,14 @@ function Hero() {
             <div className="mt-8 flex flex-col sm:flex-row gap-4 lg:justify-start justify-center">
 
               <Link
-                to="/services"
+                to="/contact"
                 className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-gradient-to-r from-sky-500 to-violet-600 text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
                 Contactez-nous
               </Link>
 
               <Link
-                to="/contact"
+                to="/services"
                 className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-slate-200 text-gray-700 font-semibold hover:bg-slate-50 hover:border-violet-300 hover:text-violet-600 transition-all duration-300"
               >
                 Découvrir nos services
