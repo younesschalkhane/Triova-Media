@@ -1,22 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
+import Hero from './ComponentAcceuil/Hero';
+import Partener from './ComponentAcceuil/Partener';
+import Services from './ComponentAcceuil/Services';
+import Apropos from './ComponentAcceuil/Apropos';
+import RealisationsSection from './ComponentAcceuil/RealisationsSection';
+import Avis from './ComponentAcceuil/Avis';
+
+
 
 function Principal() {
+ 
   return (
     <div>
-        <nav>
-        <Link to="/">Principal</Link>
-        <Link to="/Notre-agence">Notre-agence</Link>
-        <Link to="/Services">Services</Link>
-        <Link to="/Contact">Contact</Link>
+<Hero/>
+<Partener/>
+ <Services/> 
+<Apropos/> 
+<RealisationsSection/>
+<Avis/>
 
 
-
-
-
-
-        </nav>
-      
     </div>
   )
 }
