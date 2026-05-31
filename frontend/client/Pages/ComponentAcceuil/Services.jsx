@@ -66,7 +66,7 @@ const services = [
 
 function Services() {
   return (
-    <section className="w-full bg-gradient-to-b from-white via-slate-50 to-white py-20 px-6">
+    <section className="w-full bg-gradient-to-br from-violet-100 via-sky-100 to-violet-50 py-20 px-6">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}

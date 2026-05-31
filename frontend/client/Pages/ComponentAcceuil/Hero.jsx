@@ -4,7 +4,7 @@ import heroImg from '../../src/assets/hero.png'
 function Hero() {
   return (
       <div>
-      <section className=" mb-0">
+      <section className=" bg-gradient-to-br from-violet-50 via-violet-100 to-sky-100">
         <div className="container flex flex-col lg:flex-row items-center justify-evenly gap- p-6 mx-auto sm:py-12 lg:py-24">
 
           {/* Left Content */}
@@ -33,7 +33,7 @@ function Hero() {
 
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-slate-200 text-gray-700 font-semibold hover:bg-slate-50 hover:border-violet-300 hover:text-violet-600 transition-all duration-300"
+                className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-sky-500 text-gray-700 font-semibold hover:bg-slate-50 hover:border-violet-300 hover:text-violet-600 transition-all duration-300"
               >
                 Découvrir nos services
               </Link>

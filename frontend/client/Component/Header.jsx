@@ -1,85 +1,76 @@
-import React from 'react'
+import React from "react";
 import logo from "../src/assets/logo.png";
-import { Link } from 'react-router-dom'
-function Header() {
-  return (
-    <div>
+import { NavLink } from "react-router-dom";
 
-		<header className="p-4 bg-gradient-to-br from-sky-100 via-violet-50 to-violet-100 backdrop-blur-md border-b border-gray-100 text-gray-600">
+function Header() {
+  const baseStyle =
+    "px-4 py-2 border-b-2 transition hover:scale-105";
+
+  const activeStyle =
+    "border-violet-600 text-violet-600";
+  const inactiveStyle =
+    "border-transparent text-gray-600 hover:border-violet-600";
+
+  return (
+    <header className="p-4 bg-gradient-to-br from-sky-100 via-violet-50 to-violet-100 backdrop-blur-md border-b border-gray-100 text-gray-600">
       <div className="container flex justify-between h-16 mx-auto items-center">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center p-2">
+        <NavLink to="/" className="flex items-center p-2">
           <img src={logo} alt="logo" className="w-40 h-auto" />
-        </Link>
+        </NavLink>
 
         {/* Nav */}
         <ul className="hidden lg:flex items-center space-x-6">
 
           <li>
-            <Link
+            <NavLink
               to="/"
-              className="px-4 py-2 border-b-2 border-violet-600 text-violet-600 transition hover:scale-105"
+              className={({ isActive }) =>
+                `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+              }
             >
               Accueil
-            </Link>
+            </NavLink>
           </li>
 
           <li>
-            <Link
+            <NavLink
               to="/Notre-agence"
-              className="px-4 py-2 border-b-2 border-transparent hover:border-violet-600 transition hover:scale-105"
+              className={({ isActive }) =>
+                `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+              }
             >
               A propos
-            </Link>
+            </NavLink>
           </li>
 
           <li>
-            <Link
+            <NavLink
               to="/Services"
-              className="px-4 py-2 border-b-2 border-transparent hover:border-violet-600 transition hover:scale-105"
+              className={({ isActive }) =>
+                `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+              }
             >
               Nos services
-            </Link>
+            </NavLink>
           </li>
 
           <li>
-            <Link
+            <NavLink
               to="/Contact"
-              className="px-4 py-2 border-b-2 border-transparent hover:border-violet-600 transition hover:scale-105"
+              className={({ isActive }) =>
+                `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+              }
             >
               Contacts
-            </Link>
+            </NavLink>
           </li>
 
         </ul>
       </div>
     </header>
-        
-      {/* <header className="p-4 bg-violet-200 text-gray-600">
-	<div className="container flex justify-between h-16 mx-auto">
-		<a rel="noopener noreferrer" href="#" aria-label="Back to homepage" className="flex items-center p-2">
-			 <img src={logo} alt="logo"  className="w-50  h-24"       />
-		</a>
-		<ul className="items-stretch hidden space-x-3 lg:flex">
-			<Link to="/" className="flex">
-				<a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-violet-600 border-violet-600">Accueil</a>
-			</Link>
-			<Link to="/Notre-agence" className="flex">
-				<a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent hover:border-violet-600">A propos</a>
-			</Link>
-			<Link to="/Services" className="flex">
-				<a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent hover:border-violet-600">Nos services</a>
-			</Link>
-			<Link to="/Contact" className="flex">
-				<a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 border-transparent hover:border-violet-600">Contacts</a>
-			</Link>
-		</ul>
-		
-	</div>
-</header> */}
-    </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

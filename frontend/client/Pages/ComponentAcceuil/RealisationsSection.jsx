@@ -7,7 +7,7 @@ import triova from "../../src/assets/triova.jpeg";
 const projects = [
 // WEB DEV
   {
-    title: "Tailwind Main Template",
+    title: "Smart Home Template",
     category: "Web Dev",
     type: "Template Tailwind",
     client: "Web Project",
@@ -15,7 +15,7 @@ const projects = [
     description:
       "Template moderne basé sur Tailwind CSS avec un design clean et une structure responsive optimisée.",
     results: ["Design 100% responsive", "UI moderne et clean", "Performance optimisée"],
-    link: "https://tailwind-main.netlify.app/",
+    link: "https://smarthomet.netlify.app/",
   },
   {
     title: "Docplanner",
@@ -89,7 +89,7 @@ const projects = [
       "Palette bleu électrique → violet",
       "Typographie géométrique",
     ],
-    link: "https://instagram.com",
+    link: "https://www.instagram.com/triovamedia/",
     image: triova,
   },
   {
@@ -109,7 +109,7 @@ const projects = [
     image: scarf,
   },
   {
-    title: "Fistanek",
+    title: "Fostanek",
     category: "Branding",
     type: "Identity",
     client: "Boutique de robes",
@@ -220,14 +220,15 @@ export function RealisationsSection() {
   return (
     <section
       id="realisations"
-      className="relative bg-gradient-to-b from-white via-slate-50 to-white py-24 sm:py-32"
+      className="relative bg-gradient-to-br from-sky-100 via-violet-50 to-violet-100 py-12 sm:py-12"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* HEADER */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-sky-500">
-            <span className="mr-2 h-1.5 w-1.5 rounded-full bg-gradient-to-r from-sky-500 to-violet-500" />
-            Nos Réalisations
+          <span className="inline-block px-4 py-1.5 rounded-full bg-sky-50 text-sky-500 text-xs font-semibold tracking-widest uppercase mb-4">
+           Nos Réalisations
+         
+            
           </span>
 
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
