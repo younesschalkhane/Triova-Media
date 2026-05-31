@@ -36,8 +36,7 @@ function NotreAgence() {
         <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
 
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 backdrop-blur px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-violet-600 shadow-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-sky-500 animate-pulse"></span>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-violet-50 text-violet-600 text-xs font-semibold tracking-widest uppercase mb-4">
               Notre Agence
             </span>
 

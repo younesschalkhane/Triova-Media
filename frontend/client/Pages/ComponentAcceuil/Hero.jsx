@@ -1,67 +1,102 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import heroImg from '../../src/assets/hero.png'
+import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import heroImg from "../../src/assets/hero.png";
+
 function Hero() {
   return (
-      <div>
-      <section className=" bg-gradient-to-br from-violet-50 via-violet-100 to-sky-100">
-        <div className="container flex flex-col lg:flex-row items-center justify-evenly gap- p-6 mx-auto sm:py-12 lg:py-24">
+    <section className="bg-gradient-to-br from-violet-50 via-violet-100 to-sky-100">
 
-          {/* Left Content */}
-          <div className="flex flex-col justify-center text-center lg:text-left max-w-xl">
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10 px-6 py-12 sm:py-16 lg:py-24">
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-              <span className="text-sky-500">Votre succès</span>{" "}
-              <span className="text-violet-600">digital commence ici</span>
-            </h1>
+        {/* LEFT CONTENT */}
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col justify-center text-center lg:text-left max-w-xl w-full"
+        >
 
-            <p className="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
-              TRIOVA MEDIA accompagne les entreprises avec des solutions de marketing
-              digital créatives, du contenu engageant et des stratégies innovantes
-              pour développer leur présence en ligne et attirer plus de clients.
-            </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight"
+          >
+            <span className="text-sky-500">Votre succès</span>{" "}
+            <span className="text-violet-600">digital commence ici</span>
+          </motion.h1>
 
-            {/* Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 lg:justify-start justify-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.7 }}
+            className="mt-5 sm:mt-6 text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed"
+          >
+            TRIOVA MEDIA accompagne les entreprises avec des solutions de marketing
+            digital créatives, du contenu engageant et des stratégies innovantes
+            pour développer leur présence en ligne et attirer plus de clients.
+          </motion.p>
 
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full bg-gradient-to-r from-sky-500 to-violet-600 text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                Contactez-nous
-              </Link>
+          {/* BUTTONS */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.7 }}
+            className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full"
+          >
 
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center px-7 py-3 rounded-full border border-sky-500 text-gray-700 font-semibold hover:bg-slate-50 hover:border-violet-300 hover:text-violet-600 transition-all duration-300"
-              >
-                Découvrir nos services
-              </Link>
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-full bg-gradient-to-r from-sky-500 to-violet-600 text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
+            >
+              Contactez-nous
+            </Link>
 
-            </div>
-          </div>
+            <Link
+              to="/services"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-7 py-3 rounded-full border border-sky-500 text-gray-700 font-semibold hover:bg-slate-50 hover:border-violet-300 hover:text-violet-600 transition-all duration-300"
+            >
+              Découvrir nos services
+            </Link>
 
-          {/* Right Image */}
-          <div className="relative w-full max-w-lg mx-auto lg:mx-0">
+          </motion.div>
+        </motion.div>
 
-            <div className="group relative rounded-2xl overflow-hidden border border-slate-100 transition-all duration-300 hover:border-violet-500 hover:shadow-xl">
+        {/* RIGHT IMAGE */}
+        <motion.div
+          initial={{ opacity: 0, x: 60, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          className="w-full flex justify-center lg:justify-end"
+        >
+          <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg">
 
-              {/* Glow effect */}
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 120 }}
+              className="group relative rounded-2xl overflow-hidden border border-slate-100 hover:border-violet-500 hover:shadow-xl"
+            >
+
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-r from-sky-500 to-violet-600 blur-sm -z-10" />
 
-              <img
+              <motion.img
                 src={heroImg}
                 alt="Triova Media Hero"
-                className="w-full h-[420px] object-cover transition-transform duration-500 group-hover:scale-105"
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 1 }}
+                className="w-full h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] object-cover"
               />
 
-            </div>
-          </div>
+            </motion.div>
 
-        </div>
-      </section>
-    </div>
-  )
+          </div>
+        </motion.div>
+
+      </div>
+    </section>
+  );
 }
 
-export default Hero
+export default Hero;
