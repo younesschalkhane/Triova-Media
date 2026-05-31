@@ -3,12 +3,12 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import scarf from "../../src/assets/scarf.jpeg";
 import fistank from "../../src/assets/fistank.jpeg";
 import triova from "../../src/assets/triova.jpeg";
-import { motion } from "framer-motion";
+
 const projects = [
 // WEB DEV
   {
     title: "Smart Home Template",
-    category: "dev web",
+    category: "Web Dev",
     type: "Template Tailwind",
     client: "Web Project",
     year: "2026",
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: "Docplanner",
-    category: "Dev Web",
+    category: "Web Dev",
     type: "Site Créatif",
     client: "Web Project",
     year: "2026",
@@ -30,7 +30,7 @@ const projects = [
   },
   {
     title: "Hostaro Bootstrap",
-    category: "Dev Web",
+    category: "Web Dev",
     type: "Landing Page",
     client: "Web Project",
     year: "2026",
@@ -217,184 +217,129 @@ export function RealisationsSection() {
       ? projects
       : projects.filter((p) => p.category === selected);
 
-
-   const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};   
-
   return (
-  <section
-    id="realisations"
-    className="relative bg-gradient-to-br from-sky-100 via-violet-50 to-violet-100 py-16 sm:py-20"
-  >
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-      {/* HEADER */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="mx-auto max-w-3xl text-center"
-      >
-        <span className="inline-block px-4 py-1.5 rounded-full bg-sky-50 text-sky-500 text-xs font-semibold tracking-widest uppercase mb-4">
-          Nos Réalisations
-        </span>
-
-        <h1 className="mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-tight">
-          <span className="text-sky-500">Portfolio</span>{" "}
-          <span className="bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent">
-            Triova Media
+    <section
+      id="realisations"
+      className="relative bg-gradient-to-br from-sky-100 via-violet-50 to-violet-100 py-12 sm:py-12"
+    >
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* HEADER */}
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-sky-50 text-sky-500 text-xs font-semibold tracking-widest uppercase mb-4">
+           Nos Réalisations
+         
+            
           </span>
-        </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-sm sm:text-base md:text-lg leading-7 text-slate-600 px-2">
-          Une sélection complète de nos projets : branding, e-commerce,
-          intelligence artificielle, gestion de réseaux sociaux et
-          développement web.
-        </p>
-      </motion.div>
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
+            <span className="text-sky-500">Portfolio</span>{" "}
+            <span className="bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent">
+              Triova Media
+            </span>
+          </h1>
 
-      {/* FILTERS */}
-      <div className="mt-10 mb-12 flex flex-wrap justify-center gap-2 sm:gap-3 px-2">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelected(cat)}
-            className={`rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold transition-all duration-300 ${
-              selected === cat
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
+            Une sélection complète de nos projets : branding, e-commerce,
+            intelligence artificielle, gestion de réseaux sociaux et
+            développement web. Chaque réalisation reflète notre engagement à
+            créer des expériences digitales modernes, performantes et taillées
+            sur mesure pour nos clients.
+          </p>
+        </div>
+
+        {/* FILTER BUTTONS */}
+        <div className="mt-12 mb-14 flex flex-wrap justify-center gap-3">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelected(cat)}
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${selected === cat
                 ? "bg-gradient-to-r from-sky-500 to-violet-600 text-white shadow-lg shadow-violet-500/30"
                 : "border border-slate-200 bg-white text-slate-600 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-600"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
-      {/* PROJECTS */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
-      >
-        {filtered.map((p) => (
-          <motion.div
-            key={`${p.category}-${p.title}`}
-            variants={cardVariants}
-            whileHover={{
-              y: -8,
-              scale: 1.02,
-            }}
-            className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white p-5 sm:p-6 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-300"
-          >
-            <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-sky-500 to-violet-600 transition-transform duration-300 group-hover:scale-x-100" />
+        {/* GRID */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((p) => (
+            <div
+              key={`${p.category}-${p.title}`}
+              className="group relative flex flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-sky-500 to-violet-600 transition-transform duration-300 group-hover:scale-x-100" />
 
-            {p.image && (
-              <div className="mb-6 -mx-2 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 to-white">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="aspect-[4/3] w-full object-contain p-3 sm:p-4 transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-            )}
-
-            <div className="mb-5 flex items-start justify-between gap-3">
-              <div className="flex flex-wrap gap-2">
-                <span className="rounded-full bg-sky-50 px-3 py-1.5 text-xs font-semibold text-sky-500">
-                  {p.category}
-                </span>
-
-                <span className="rounded-full bg-violet-50 px-3 py-1.5 text-xs font-semibold text-violet-600">
-                  {p.type}
-                </span>
-              </div>
-
-              {p.year && (
-                <div className="text-xs text-slate-500">{p.year}</div>
-              )}
-            </div>
-
-            <h3 className="mb-1 text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-violet-600 transition-colors">
-              {p.title}
-            </h3>
-
-            {p.client && (
-              <p className="mb-4 text-sm font-medium text-violet-600">
-                {p.client}
-              </p>
-            )}
-
-            <p className="mb-6 text-sm md:text-base leading-relaxed text-slate-600">
-              {p.description}
-            </p>
-
-            <div className="mb-6 space-y-2">
-              {p.results.map((r, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-2 text-xs sm:text-sm"
-                >
-                  <CheckCircle2
-                    size={18}
-                    className="text-sky-500 shrink-0"
+              {p.image && (
+                <div className="mb-6 -mx-2 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 to-white">
+                  <img
+                    src={p.image}
+                    alt={`${p.title} logo`}
+                    className="aspect-[4/3] w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
                   />
+                </div>
+              )}
 
-                  <span className="font-medium text-slate-700">
-                    {r}
+              <div className="mb-5 flex items-start justify-between gap-3">
+                <div className="flex flex-wrap gap-2">
+                  <span className="rounded-full bg-sky-50 px-3 py-1.5 text-xs font-semibold text-sky-500">
+                    {p.category}
+                  </span>
+                  <span className="rounded-full bg-violet-50 px-3 py-1.5 text-xs font-semibold text-violet-600">
+                    {p.type}
                   </span>
                 </div>
-              ))}
+                {p.year && <div className="text-xs text-slate-500">{p.year}</div>}
+              </div>
+
+              <h3 className="mb-1 text-2xl font-bold text-slate-900 transition-colors group-hover:text-violet-600">
+                {p.title}
+              </h3>
+
+              {p.client && (
+                <p className="mb-4 text-sm font-medium text-violet-600">{p.client}</p>
+              )}
+
+              <p className="mb-6 text-sm leading-relaxed text-slate-600 md:text-base">
+                {p.description}
+              </p>
+
+              <div className="mb-6 space-y-2">
+                {p.results.map((r, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm">
+                    <CheckCircle2 size={18} className="text-sky-500" />
+                    <span className="font-medium text-slate-700">{r}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href={p.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-violet-600 transition-colors hover:text-sky-500"
+              >
+                Voir le projet
+                <ArrowUpRight
+                  size={18}
+                  className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
+                />
+              </a>
             </div>
+          ))}
+        </div>
 
-            <a
-              href={p.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-violet-600 hover:text-sky-500 transition-colors"
-            >
-              Voir le projet
-
-              <ArrowUpRight
-                size={18}
-                className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
-              />
-            </a>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {filtered.length === 0 && (
-        <p className="mt-12 text-center text-slate-500">
-          Aucun projet dans cette catégorie pour le moment.
-        </p>
-      )}
-    </div>
-  </section>
-);
+        {filtered.length === 0 && (
+          <p className="mt-12 text-center text-slate-500">
+            Aucun projet dans cette catégorie pour le moment.
+          </p>
+        )}
+      </div>
+    </section>
+  );
 }
 
 export default RealisationsSection;
