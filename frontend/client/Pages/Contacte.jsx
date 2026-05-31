@@ -25,26 +25,13 @@ export default function Contacte() {
   return (
     <div>
  {/* CONTACT HERO SECTION */}
-<section className="relative overflow-hidden py-28 bg-gradient-to-br from-sky-100 via-sky-50 to-violet-100">
-
-  {/* Background shapes */}
-  <div className="absolute top-0 left-0 w-72 h-72 bg-sky-200/30 rounded-full blur-3xl"></div>
-
-  <div className="absolute bottom-0 right-0 w-80 h-80 bg-violet-200/30 rounded-full blur-3xl"></div>
-
-  {/* Grid effect */}
-
+<section className=" py-12 bg-gradient-to-br from-violet-50 via-violet-100 to-sky-100">
   {/* Content */}
-  <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-
-    {/* Badge */}
-    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white shadow-sm mb-6">
-      <div className="w-2 h-2 rounded-full bg-sky-500"></div>
-
-      <span className="text-sm font-medium text-slate-600">
+  <div className="  gap-15   text-center">
+      <span className="inline-block px-4 py-1.5 rounded-full bg-sky-50 text-sky-500 text-xs font-semibold tracking-widest uppercase mb-4">
         Contact Triova Media
       </span>
-    </div>
+    
 
     {/* Title */}
     <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
@@ -62,7 +49,7 @@ export default function Contacte() {
     </h1>
 
     {/* Description */}
-    <p className="max-w-3xl mx-auto text-lg text-slate-600 leading-relaxed">
+    <p className="max-w-3xl mx-auto text-lg text-slate-600 ">
 
       Chez <span className="font-semibold text-slate-800">Triova Media</span>,
       nous accompagnons les entreprises dans leur croissance digitale grâce
@@ -72,9 +59,6 @@ export default function Contacte() {
     </p>
 
   </div>
-  {/* Bottom shape */}
-  <div className="absolute bottom-0 left-0 w-full h-20 bg-white skew-y-2 origin-bottom-left"></div>
-
 </section>
     <div className="min-h-screen flex items-center justify-center p-6 relative">
 
