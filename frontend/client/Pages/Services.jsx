@@ -10,13 +10,14 @@ import {
   Search
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 
 function Services() {
   return (
  <div className= "pb-20">
    
-    <section className="min-h-screen bg-gradient-to-br from-sky-100 via-violet-50 to-violet-100 text-white px-6 py-16 ">
+    <section className="-h-screen bg-gradient-to-br from-violet-50 via-violet-100 to-sky-100 text-white px-6 py-16 ">
 
       
       {/* Title */}
@@ -47,7 +48,9 @@ function Services() {
           votre présence digitale et booster votre activité.
 
         </p>
+        <Link to="/contact">
         <button className="mt-6 md:mt-0 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-violet-400 hover:scale-105 transition duration-300 font-semibold">Demmandez Votre Projet</button>
+       </Link>
         </motion.div>
         <motion.dev  initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
@@ -61,14 +64,15 @@ function Services() {
 
    {/* Heading */}
     
-     <section className='pt-15'>
-      <div className='flex justify-around '>
-        <div className='flex-col'>
-      <h2 className='text-5xl font-bold leading-tight bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent'>Un Système Digital </h2>
-      <h3 className='text-5xl font-bold leading-tight bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent'> Centralisé et Innovant</h3>
+     <section className='pt-15 '>
+      <div className='items-center justify-center text-center gap-6'>
+        <div className=''>
+      <h2 className='text-center text-6xl font-bold leading-tight bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent'>Des services digitaux adaptés </h2>
+      <h3 className='text-6xl font-bold leading-tight bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent'> à vos besoins</h3>
       </div>
-      <p className='w-150 pt-18'>Chaque service apporte sa propre valeur. 
-        Réunis, ils créent une synergie digitale qui renforce chaque point de contact.</p>
+      <p className=' text-center pt-8 text-lg  '>Chaque service apporte sa propre valeur. 
+        Réunis, ils créent une synergie digitale qui </p>
+        <p className='text-center  text-lg'>renforce chaque point de contact.</p>
 </div>
 
      </section>
@@ -128,7 +132,7 @@ function Services() {
           <span className="text-sm text-gray-400">Résultat type</span>
 
           <div className="flex items-center gap-2 text-sky-600 font-semibold">
-            +184% trafic
+          +30 Sites Développés
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
@@ -183,7 +187,7 @@ function Services() {
           <span className="text-sm text-gray-400">Résultat type</span>
 
           <div className="flex items-center gap-2 text-violet-600 font-semibold">
-            ROAS x4.2
+           Chatbots & Agents IA 
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
@@ -248,7 +252,7 @@ function Services() {
           <span className="text-sm text-gray-400">Résultat type</span>
 
           <div className="flex items-center gap-2 text-sky-600 font-semibold">
-            +184% trafic
+       +50 logos Créés
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
@@ -303,7 +307,7 @@ function Services() {
           <span className="text-sm text-gray-400">Résultat type</span>
 
           <div className="flex items-center gap-2 text-violet-600 font-semibold">
-            ROAS x4.2
+           +100 Compagnes Lancées
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
@@ -367,7 +371,7 @@ function Services() {
           <span className="text-sm text-gray-400">Résultat type</span>
 
           <div className="flex items-center gap-2 text-sky-600 font-semibold">
-            +184% trafic
+           +50 Automatisation AI
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
@@ -487,7 +491,7 @@ function Services() {
           <span className="text-sm text-gray-400">Résultat type</span>
 
           <div className="flex items-center gap-2 text-sky-600 font-semibold">
-            +184% trafic
+          +100 Mots-clés positionnés
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
@@ -505,7 +509,7 @@ function Services() {
           <h3 className='text-center text-5xl font-bold leading-tight bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent'>Commencer ?</h3>
           <p className='text-center pt-8 text-lg'>Notre audit digital gratuit analyse votre situation et vous recommande exactement les 2-3 </p>
           <p className='text-center text-lg pb-8'>actions à fort impact à mettre en place en priorité.</p>
-          <button className="mt-6 md:mt-0 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-violet-400 hover:scale-105 transition duration-300 font-semibold ml-45 ">Audit Gratuit-Recommandation Personnalisée</button>
+          <button className="  mt-6 md:mt-0 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-violet-400 hover:scale-105 transition duration-300 font-semibold ml-67 ">Commencer Maintenant</button>
 
          </div>
 
