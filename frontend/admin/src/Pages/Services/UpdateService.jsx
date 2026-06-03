@@ -1,20 +1,32 @@
-import React, { useState } from "react";
-import { Check, Plus } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Check } from "lucide-react";
 import { serviceIcons, serviceIconOptions } from "./servicesData";
 
-function AddService({ onCancel, onSave }) {
+function UpdateService({ service, onCancel, onSave }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [icon, setIcon] = useState(serviceIconOptions[0]?.key || "code2");
   const [price, setPrice] = useState("");
   const [status, setStatus] = useState("active");
 
+  useEffect(() => {
+    if (!service) return;
+    setName(service.name || "");
+    setDescription(service.description || "");
+    setIcon(service.icon || serviceIconOptions[0]?.key || "code2");
+    setPrice(
+      service.price === 0 || service.price ? String(service.price) : ""
+    );
+    setStatus(service.status || "active");
+  }, [service]);
+
   function handleSubmit(e) {
     e.preventDefault();
-
+    if (!service) return;
     if (!name.trim()) return;
 
     onSave({
+      ...service,
       name: name.trim(),
       description: description.trim(),
       icon,
@@ -22,6 +34,8 @@ function AddService({ onCancel, onSave }) {
       status,
     });
   }
+
+  if (!service) return null;
 
   return (
     <div
@@ -32,7 +46,7 @@ function AddService({ onCancel, onSave }) {
       <div className="bg-white rounded-xl shadow-lg w-full max-w-lg p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold text-violet-700">
-            Add Service
+            Update Service
           </h2>
           <button
             type="button"
@@ -54,7 +68,6 @@ function AddService({ onCancel, onSave }) {
               onChange={(e) => setName(e.target.value)}
               type="text"
               className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
-              placeholder="Ex: SEO"
             />
           </div>
 
@@ -67,7 +80,6 @@ function AddService({ onCancel, onSave }) {
               onChange={(e) => setDescription(e.target.value)}
               rows={4}
               className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
-              placeholder="Short service description..."
             />
           </div>
 
@@ -152,11 +164,10 @@ function AddService({ onCancel, onSave }) {
             </button>
             <button
               type="submit"
-              className="px-5 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition flex items-center gap-2 disabled:opacity-50"
+              className="px-5 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition disabled:opacity-50"
               disabled={!name.trim()}
             >
-              <Plus size={18} />
-              Save
+              Save Changes
             </button>
           </div>
         </form>
@@ -165,5 +176,4 @@ function AddService({ onCancel, onSave }) {
   );
 }
 
-export default AddService;
-
+export default UpdateService;

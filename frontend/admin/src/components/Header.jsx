@@ -3,6 +3,7 @@ import { Menu, Search, Bell } from "lucide-react";
 
  function Header({ setOpenSidebar }) {
   return (
+<<<<<<< HEAD
     <header className="h-[70px] bg-gradient-to-br from-violet-50 via-violet-100 to-sky-100 border-b border-gray-100 flex items-center justify-between px-6">
       <div className="flex items-center gap-4">
         <button
@@ -34,6 +35,13 @@ import { Menu, Search, Bell } from "lucide-react";
       </div>
     </header>
   );
+=======
+    <div>
+      <h1 >Admin Dashboard</h1>
+      
+    </div>
+  )
+>>>>>>> 41eef6c711df4d6e90db6ae1c408f07f389a9b56
 }
 
 export default Header
