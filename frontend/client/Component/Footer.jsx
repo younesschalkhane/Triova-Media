@@ -140,7 +140,7 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM */}
-      <div className="border-t border-gray-200 mt-12 sm:mt-20 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 px-2">
+      <div className="border-t border-gray-200 mt-12 sm:mt-20 pt-6 flex flex-col md:flex-row items-center justify-evenly gap-4 px-2">
 
         <p className="text-gray-500 text-xs sm:text-sm text-center md:text-left">
           © 2026 Triova Media
@@ -154,42 +154,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* CHAT BUTTON */}
-      <button
-        onClick={() => setOpenChat(!openChat)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
-      >
-        <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-2xl bg-gradient-to-r from-sky-500 to-violet-600 text-white flex items-center justify-center text-2xl sm:text-3xl shadow-xl hover:scale-110 transition">
-          <FaRobot />
-        </div>
-      </button>
-
-      {/* CHAT BOX */}
-      {openChat && (
-        <div className="fixed bottom-24 sm:bottom-28 right-4 sm:right-6 w-[90%] sm:w-80 bg-white rounded-3xl shadow-2xl border z-50">
-
-          <div className="bg-gradient-to-r from-sky-500 to-violet-600 p-3 sm:p-4 text-white rounded-t-3xl">
-            <h3 className="font-semibold text-sm sm:text-base">
-              Triova Assistant
-            </h3>
-          </div>
-
-          <div className="p-3 sm:p-4 h-56 sm:h-72 overflow-y-auto text-sm">
-            👋 Bonjour et bienvenue !
-          </div>
-
-          <div className="p-3 border-t flex gap-2">
-            <input
-              className="flex-1 border rounded-xl px-3 py-2 text-sm"
-              placeholder="Message..."
-            />
-            <button className="bg-gradient-to-r from-sky-500 to-violet-600 text-white px-3 sm:px-4 rounded-xl text-sm">
-              Envoyer
-            </button>
-          </div>
-
-        </div>
-      )}
+     
     </footer>
   );
 }
