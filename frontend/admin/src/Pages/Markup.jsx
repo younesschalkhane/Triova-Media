@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Layoute from '../components/Layoute'
 import Dashboard from './Dashboard/Tableaubord'
 import Services from './Services/Services'
@@ -10,10 +10,7 @@ import Client from './Client/Client'
 
 function Markup() {
   return (
-    <div>
-
-    <BrowserRouter>
-     <Routes>
+    <Routes>
       <Route path="/" element={<Layoute />}>
         <Route index element={<Dashboard />} />
         <Route path="services" element={<Services />} />
@@ -21,12 +18,7 @@ function Markup() {
         <Route path="devis" element={<Devis />} />
         <Route path="client" element={<Client />} />
       </Route>
-     </Routes>
-    </BrowserRouter>
-
-
-      
-    </div>
+    </Routes>
   )
 }
 
