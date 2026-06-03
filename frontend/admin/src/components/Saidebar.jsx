@@ -28,7 +28,7 @@ function Saidebar({ openSidebar, setOpenSidebar }) {
       <aside
   className={`
     fixed lg:static top-0 left-0 z-50
-    h-screen w-64 bg-gradient-to-br from-violet-200 via-violet-300 to-sky-300 text-black
+    min-h-screen w-64 bg-gradient-to-br from-violet-200 via-violet-300 to-sky-300 text-black
     transform transition-transform duration-300
     flex flex-col
     ${openSidebar ? "translate-x-0" : "-translate-x-full"}
