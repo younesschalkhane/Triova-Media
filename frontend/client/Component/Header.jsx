@@ -39,7 +39,7 @@ function Header() {
         <ul className="hidden lg:flex items-center space-x-6">
           {[
             { to: "/", label: "Accueil" },
-            { to: "/Notre-agence", label: "A propos" },
+            { to: "/Apropos", label: "À propos" },
             { to: "/Services", label: "Nos services" },
             { to: "/Contact", label: "Contact" },
           ].map((item) => (
@@ -72,7 +72,7 @@ function Header() {
         <div className="lg:hidden bg-white shadow-md px-6 py-4 space-y-3">
           {[
             { to: "/", label: "Accueil" },
-            { to: "/Notre-agence", label: "A propos" },
+            { to: "/Apropos", label: "À propos" },
             { to: "/Services", label: "Nos services" },
             { to: "/Contact", label: "Contact" },
           ].map((item) => (
