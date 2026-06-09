@@ -86,6 +86,8 @@ function Services() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       
       {/* Card 1 */}
+      <Link to="/ServiceRequestForm?service=Programmation%20Web"
+  className="block">
       <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_-4px_20px_rgba(59,130,246,0.35)]">
         
         {/* Icon */}
@@ -128,6 +130,7 @@ function Services() {
         </ul>
 
         {/* Footer */}
+        
         <div className="mt-10 pt-6 border-t border-gray-100 flex items-center justify-between">
           <span className="text-sm text-gray-400">Résultat type</span>
 
@@ -139,8 +142,11 @@ function Services() {
           </div>
         </div>
       </div>
+      </Link>
 
       {/* Card 2 */}
+      <Link to="/ServiceRequestForm?service=Solutions AI"
+  className="block">
       <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_-4px_20px_rgba(59,130,246,0.35)]">
         
         {/* Icon */}
@@ -194,6 +200,7 @@ function Services() {
           </div>
         </div>
       </div>
+      </Link>
     </div>
   </div>
 </section>
@@ -205,7 +212,8 @@ function Services() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       
       {/* Card 3 */}
-      
+      <Link to="/ServiceRequestForm?service=Identité Visuelle"
+  className="block">
       <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_-4px_20px_rgba(59,130,246,0.35)]">
         
         {/* Icon */}
@@ -259,8 +267,11 @@ function Services() {
           </div>
         </div>
       </div>
+      </Link>
      
       {/* Card 4 */}
+      <Link to="/ServiceRequestForm?service=ADS Marketing"
+  className="block">
       <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_-4px_20px_rgba(59,130,246,0.35)]">
         
         {/* Icon */}
@@ -314,6 +325,7 @@ function Services() {
           </div>
         </div>
       </div>
+      </Link>
     </div>
   </div>
 </section>
@@ -325,6 +337,8 @@ function Services() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       
       {/* Card 5 */}
+      <Link to="/ServiceRequestForm?service=Création AI"
+  className="block">
       <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_-4px_20px_rgba(59,130,246,0.35)]">
         
         {/* Icon */}
@@ -378,8 +392,11 @@ function Services() {
           </div>
         </div>
       </div>
+      </Link>
 
       {/* Card 6 */}
+      <Link to="/ServiceRequestForm?service=Social Media"
+  className="block">
       <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_-4px_20px_rgba(59,130,246,0.35)]">
         
         {/* Icon */}
@@ -434,6 +451,7 @@ function Services() {
           </div>
         </div>
       </div>
+      </Link>
     </div>
   </div>
 </section>
@@ -444,7 +462,9 @@ function Services() {
     
     {/* Cards */}
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+       {/* Card 7 */}
+       <Link to="/ServiceRequestForm?service=SEO"
+  className="block">
       <div className="group rounded-3xl border border-gray-200 p-8 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_-4px_20px_rgba(59,130,246,0.35)]">
         
         {/* Icon */}
@@ -498,6 +518,7 @@ function Services() {
           </div>
         </div>
       </div>
+      </Link>
       </div>
       </div>
       </section>
@@ -509,26 +530,11 @@ function Services() {
           <h3 className='text-center text-5xl font-bold leading-tight bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent'>Commencer ?</h3>
           <p className='text-center pt-8 text-lg'>Notre audit digital gratuit analyse votre situation et vous recommande exactement les 2-3 </p>
           <p className='text-center text-lg pb-8'>actions à fort impact à mettre en place en priorité.</p>
-          <button className="  mt-6 md:mt-0 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-violet-400 hover:scale-105 transition duration-300 font-semibold ml-67 ">Commencer Maintenant</button>
+          <Link to="/devis" className="  mt-6 md:mt-0 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-violet-400 hover:scale-105 transition duration-300 font-semibold ml-67 ">Commencer Maintenant</Link>
 
          </div>
 
       </section>
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
 
 
 </div>

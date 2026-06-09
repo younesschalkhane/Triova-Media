@@ -114,10 +114,13 @@ function Services() {
                 </p>
 
                 {/* Link */}
-                <Link to="/services" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-500 group-hover:text-violet-600 transition-colors">
-                  En savoir plus
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                <Link
+  to={`/ServiceRequestForm?service=${encodeURIComponent(service.title)}`}
+  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-500 group-hover:text-violet-600 transition-colors"
+>
+  Demander ce service
+  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+</Link>
               </div>
             );
           })}
