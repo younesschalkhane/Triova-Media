@@ -10,15 +10,27 @@ import {
   Sparkles,
 } from "lucide-react";
 import logo from "./logo.jpeg";
+import { getCurrentUser, hasPermission, logout } from "../auth/mockAuth";
+
+const menuItems = [
+  { to: "/", label: "Dashboard", icon: LayoutDashboard, superadminOnly: true },
+  { to: "/client", label: "Client", icon: Users, permission: "orders" },
+  { to: "/contact", label: "Contact", icon: MessageSquare, permission: "users" },
+  { to: "/devis", label: "Devis", icon: FileText, permission: "devis" },
+  { to: "/services", label: "Services", icon: Sparkles, permission: "services" },
+];
 
 function Saidebar({ openSidebar, setOpenSidebar }) {
   const navigate = useNavigate();
+  const user = getCurrentUser();
+
+  const visibleItems = menuItems.filter((item) => {
+    if (item.superadminOnly) return user?.role === "superadmin";
+    return !item.permission || hasPermission(user, item.permission);
+  });
 
   const handleLogout = () => {
-    // Ila 3andek token f localStorage
-    localStorage.removeItem("token");
-
-    // Redirect l login
+    logout();
     navigate("/login");
   };
 
@@ -72,85 +84,23 @@ function Saidebar({ openSidebar, setOpenSidebar }) {
 
         {/* Menu */}
         <ul className="flex flex-col gap-2 p-4">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `flex items-center gap-3 p-3 rounded-xl transition-all ${
-                  isActive
-                    ? "bg-white text-violet-700 shadow-md font-semibold"
-                    : "hover:bg-white/30"
-                }`
-              }
-            >
-              <LayoutDashboard size={20} />
-              <span>Dashboard</span>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/client"
-              className={({ isActive }) =>
-                `flex items-center gap-3 p-3 rounded-xl transition-all ${
-                  isActive
-                    ? "bg-white text-violet-700 shadow-md font-semibold"
-                    : "hover:bg-white/30"
-                }`
-              }
-            >
-              <Users size={20} />
-              <span>Client</span>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `flex items-center gap-3 p-3 rounded-xl transition-all ${
-                  isActive
-                    ? "bg-white text-violet-700 shadow-md font-semibold"
-                    : "hover:bg-white/30"
-                }`
-              }
-            >
-              <MessageSquare size={20} />
-              <span>Contact</span>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/devis"
-              className={({ isActive }) =>
-                `flex items-center gap-3 p-3 rounded-xl transition-all ${
-                  isActive
-                    ? "bg-white text-violet-700 shadow-md font-semibold"
-                    : "hover:bg-white/30"
-                }`
-              }
-            >
-              <FileText size={20} />
-              <span>Devis</span>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/services"
-              className={({ isActive }) =>
-                `flex items-center gap-3 p-3 rounded-xl transition-all ${
-                  isActive
-                    ? "bg-white text-violet-700 shadow-md font-semibold"
-                    : "hover:bg-white/30"
-                }`
-              }
-            >
-              <Sparkles size={20} />
-              <span>Services</span>
-            </NavLink>
-          </li>
+          {visibleItems.map(({ to, label, icon: Icon }) => (
+            <li key={to}>
+              <NavLink
+                to={to}
+                className={({ isActive }) =>
+                  `flex items-center gap-3 p-3 rounded-xl transition-all ${
+                    isActive
+                      ? "bg-white text-violet-700 shadow-md font-semibold"
+                      : "hover:bg-white/30"
+                  }`
+                }
+              >
+                <Icon size={20} />
+                <span>{label}</span>
+              </NavLink>
+            </li>
+          ))}
         </ul>
 
         {/* Logout */}

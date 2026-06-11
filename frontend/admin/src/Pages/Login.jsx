@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import logo from "../assets/logo.jpeg";
+import { authenticate, getDefaultRoute } from "../auth/mockAuth";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -14,13 +15,11 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Informations de test
-    if (
-      email === "admin@triovamedia.com" &&
-      password === "123456"
-    ) {
-      localStorage.setItem("admin", "true");
-      navigate("/");
+    const user = authenticate(email, password);
+
+    if (user) {
+      localStorage.setItem("adminUser", JSON.stringify(user));
+      navigate(getDefaultRoute(user));
     } else {
       alert("Email ou mot de passe incorrect");
     }

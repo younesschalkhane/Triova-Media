@@ -1,9 +1,10 @@
 import { Navigate } from "react-router-dom";
+import { getCurrentUser } from "../auth/mockAuth";
 
 export default function ProtectedRoute({ children }) {
-  const isLoggedIn = localStorage.getItem("admin");
+  const user = getCurrentUser();
 
-  if (!isLoggedIn) {
+  if (!user) {
     return <Navigate to="/login" replace />;
   }
 
