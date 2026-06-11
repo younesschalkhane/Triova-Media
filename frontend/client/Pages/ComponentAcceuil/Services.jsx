@@ -1,75 +1,92 @@
-import React from "react";
-import {
-  Code2,
-  Brain,
-  Palette,
-  Megaphone,
-  Sparkles,
-  Share2,
-  Search,
-  ArrowRight,
-} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { fetchActiveServices } from "../../src/services/api/servicesApi";
+import { getServiceIcon } from "../../src/utils/serviceIcons";
 
-
-const services = [
+const fallbackServices = [
   {
-    id: "web-development",
+    _id: "fallback-1",
     title: "Programmation Web",
-    description:
-      "Création de sites web modernes, rapides et optimisés pour tous les appareils.",
-    icon: Code2,
+    shortDescription:
+      "Nous développons des sites web modernes, rapides et entièrement sur mesure pour répondre aux besoins spécifiques de votre activité.",
+    icon: "code2",
   },
   {
-    id: "ai-programming",
+    _id: "fallback-2",
     title: "Solutions AI",
-    description:
-      "Développement d’outils intelligents, automatisation et chatbots innovants.",
-    icon: Brain,
+    shortDescription:
+      "Nous développons des solutions d'intelligence artificielle modernes, performantes et entièrement adaptées aux besoins de votre activité.",
+    icon: "brain",
   },
   {
-    id: "brand-identity",
+    _id: "fallback-3",
     title: "Identité Visuelle",
-    description:
-      "Création de logos, chartes graphiques et branding professionnel.",
-    icon: Palette,
+    shortDescription:
+      "Nous créons des identités visuelles modernes et mémorables qui reflètent parfaitement l'image et les valeurs de votre marque.",
+    icon: "palette",
   },
   {
-    id: "ads-campaigns",
+    _id: "fallback-4",
     title: "ADS Marketing",
-    description:
-      "Gestion de campagnes Google Ads et Meta Ads performantes.",
-    icon: Megaphone,
+    shortDescription:
+      "Nous créons des campagnes publicitaires digitales performantes pour développer votre visibilité, attirer de nouveaux clients et maximiser vos résultats.",
+    icon: "megaphone",
   },
   {
-    id: "ai-visual-creation",
+    _id: "fallback-5",
     title: "Création AI",
-    description:
-      "Création de contenus visuels modernes avec intelligence artificielle.",
-    icon: Sparkles,
+    shortDescription:
+      "Nous concevons des créations basées sur l'intelligence artificielle pour donner vie à vos idées avec innovation, rapidité et créativité.",
+    icon: "sparkles",
   },
   {
-    id: "social-media",
+    _id: "fallback-6",
     title: "Social Media",
-    description:
-      "Gestion et développement de votre présence sur les réseaux sociaux.",
-    icon: Share2,
+    shortDescription:
+      "Stratégie éditoriale, production de contenu et community management. On transforme vos abonnés en ambassadeurs.",
+    icon: "share2",
   },
   {
-    id: "seo",
-    title: "SEO",
-    description:
-      "Optimisation du référencement naturel pour améliorer votre visibilité.",
-    icon: Search,
+    _id: "fallback-7",
+    title: "SEO & Référencement",
+    shortDescription:
+      "Audit technique, stratégie de contenu et optimisation SEO pour améliorer votre visibilité sur Google.",
+    icon: "search",
   },
 ];
 
 function Services() {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function loadServices() {
+      try {
+        setLoading(true);
+        setError("");
+        const response = await fetchActiveServices();
+        const apiData = response.data || [];
+        if (apiData.length > 0) {
+          setServices(apiData);
+        } else {
+          setServices(fallbackServices);
+        }
+      } catch {
+        setError("Impossible de charger les services pour le moment.");
+        setServices(fallbackServices);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadServices();
+  }, []);
+
   return (
     <section className="w-full bg-gradient-to-br from-violet-100 via-sky-100 to-violet-50 py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        
-        {/* Header */}
         <div className="text-center mb-14">
           <span className="inline-block px-4 py-1.5 rounded-full bg-sky-50 text-sky-500 text-xs font-semibold tracking-widest uppercase mb-4">
             Nos Services
@@ -86,47 +103,60 @@ function Services() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => {
-            const Icon = service.icon;
+        {loading && (
+          <div className="text-center text-gray-500 animate-pulse py-10">
+            Chargement des services...
+          </div>
+        )}
 
-            return (
-              <div
-                key={service.id}
-                className="group relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-              >
-                {/* Top Border */}
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {error && (
+          <div className="text-center text-red-600 bg-red-50 border border-red-200 rounded-xl py-6 px-4">
+            {error}
+          </div>
+        )}
 
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-sky-500 to-violet-600 flex items-center justify-center mb-6 shadow-md">
-                  <Icon className="w-7 h-7 text-white" />
+        {!loading && !error && services.length === 0 && (
+          <div className="text-center text-gray-500 py-10">
+            Aucun service disponible pour le moment.
+          </div>
+        )}
+
+        {!loading && !error && services.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service) => {
+              const Icon = getServiceIcon(service.icon);
+
+              return (
+                <div
+                  key={service._id}
+                  className="group relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                >
+                  <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-sky-500 to-violet-600 flex items-center justify-center mb-6 shadow-md">
+                    <Icon className="w-7 h-7 text-white" />
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-violet-600 mb-3">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {service.shortDescription}
+                  </p>
+
+                  <Link
+                    to={`/ServiceRequestForm?service=${encodeURIComponent(service.title)}`}
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-500 group-hover:text-violet-600 transition-colors"
+                  >
+                    Demander ce service
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-semibold text-violet-600 mb-3">
-                  {service.title}
-                </h3>
-
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Link */}
-                <Link
-  to={`/ServiceRequestForm?service=${encodeURIComponent(service.title)}`}
-  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-500 group-hover:text-violet-600 transition-colors"
->
-  Demander ce service
-  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-</Link>
-              </div>
-            );
-          })}
-        </div>
-
-       
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );
