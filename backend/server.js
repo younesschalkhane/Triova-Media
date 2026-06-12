@@ -1,15 +1,12 @@
 require("dotenv").config();
-const  app = require("./app");
+const app = require("./app");
+const connectDB = require("./config/db");
 
-const connectDB = require("./config/data");
-
+// Connect to MongoDB before starting the HTTP server
 connectDB();
-
-
-
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Triova Media server running on port ${PORT}`);
 });
