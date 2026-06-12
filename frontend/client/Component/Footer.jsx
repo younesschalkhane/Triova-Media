@@ -79,7 +79,7 @@ export default function Footer() {
               Principal <span>→</span>
             </Link>
 
-            <Link to="/Notre-agence" onClick={scrollToTop}
+            <Link to="/Apropos" onClick={scrollToTop}
               className="flex justify-between hover:text-sky-500 transition">
               À propos <span>→</span>
             </Link>
