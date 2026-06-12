@@ -120,21 +120,21 @@ function Services() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6">
         <div>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500/15 to-violet-600/15 flex items-center justify-center border border-violet-100">
-              <LayoutDashboard className="w-5 h-5 text-violet-700" />
+            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-sky-500/15 to-violet-600/15 flex items-center justify-center border border-violet-100">
+              <LayoutDashboard className="w-5 h-5 text-violet-600" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-violet-700">
+              <h1 className="text-2xl font-bold text-violet-700 m-6">
                 TRIOVA MEDIA - <span className="text-sky-500">Services Management</span>
               </h1>
-              <p className="text-md text-gray-600">
+              <p className="text-md text-gray-600 m-6 ">
                 Centralisez la gestion de vos services et gardez vos offres toujours à jour avec une interface simple et performante.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-18">
           {/* Search Bar */}
           <div className="relative">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
@@ -159,53 +159,81 @@ function Services() {
       </div>
 
       {/* Statistics Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-5 hover:shadow-xl transition">
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-sm text-gray-600">Total Services</p>
-              <p className="text-2xl font-bold text-violet-700">
-                {stats.total}
-              </p>
-            </div>
-            <PackageCheck className="w-6 h-6 text-sky-500" />
-          </div>
-        </div>
+      <div className="flex flex-wrap justify-around gap-6 mb-12">
 
-        <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-5 hover:shadow-xl transition">
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-sm text-gray-600">
-                Active Services
-              </p>
-              <p className="text-2xl font-bold text-sky-600">
-                {stats.active}
-              </p>
-            </div>
-            <Activity className="w-6 h-6 text-sky-500" />
-          </div>
-        </div>
+  {/* Total Services */}
+  <div className=" w-100 group relative overflow-hidden rounded-2xl bg-white p-6 border border-slate-100 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
 
-        <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-5 hover:shadow-xl transition">
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-sm text-gray-600">
-                Inactive Services
-              </p>
-              <p className="text-2xl font-bold text-gray-700">
-                {stats.inactive}
-              </p>
-            </div>
-            <Clock className="w-6 h-6 text-gray-400" />
-          </div>
-        </div>
+    <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-sky-500 to-violet-600 transition-all duration-500 group-hover:w-full" />
+
+    <div className="relative flex items-center justify-between">
+      <div>
+        <p className="text-sm font-medium text-slate-500">
+          Total Services
+        </p>
+
+        <h2 className="mt-2 text-3xl font-bold bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent">
+          {stats.total}
+        </h2>
       </div>
 
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-violet-600 to-sky-500 shadow-lg">
+        <PackageCheck className="h-7 w-7 text-white" />
+      </div>
+    </div>
+  </div>
+
+  {/* Active Services */}
+  <div className="w-100 group relative overflow-hidden rounded-2xl bg-white p-6 border border-slate-100 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+
+    <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-sky-500 to-violet-600 transition-all duration-500 group-hover:w-full" />
+
+    <div className="relative flex items-center justify-between">
+      <div>
+        <p className="text-sm font-medium text-slate-500">
+          Active Services
+        </p>
+
+        <h2 className="mt-2 text-3xl font-bold text-sky-600">
+          {stats.active}
+        </h2>
+      </div>
+
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-500 shadow-lg">
+        <Activity className="h-7 w-7 text-white" />
+      </div>
+    </div>
+  </div>
+
+  {/* Inactive Services */}
+  <div className="w-100 group relative overflow-hidden rounded-2xl bg-white p-6 border border-slate-100 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+
+    <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-sky-500 to-violet-600 transition-all duration-500 group-hover:w-full" />
+
+    <div className="relative flex items-center justify-between">
+      <div>
+        <p className="text-sm font-medium text-slate-500">
+          Inactive Services
+        </p>
+
+        <h2 className="mt-2 text-3xl font-bold text-slate-700">
+          {stats.inactive}
+        </h2>
+      </div>
+
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-slate-500 to-slate-400 shadow-lg">
+        <Clock className="h-7 w-7 text-white" />
+      </div>
+    </div>
+  </div>
+
+</div>
+
       {/* Responsive Table */}
-      <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+      <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden mt-24">
         <div className="overflow-x-auto">
           <table className="min-w-[900px] w-full ">
-            <thead className="bg-violet-50">
+            <thead className="bg-violet-300">
               <tr>
                 <th className="p-4 text-left font-semibold text-gray-700">
                   Icon
@@ -251,10 +279,10 @@ function Services() {
                   return (
                     <tr
                       key={service.id}
-                      className="border-t border-gray-100 hover:bg-gray-50 transition"
+                      className="border-t border-gray-100 hover:bg-violet-100 transition"
                     >
                       <td className="p-4">
-                        <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-xl bg-violet-50 border border-sky-100 flex items-center justify-center hover:bg-violet-200 transition">
                           {getIcon(service.icon)}
                         </div>
                       </td>
@@ -295,7 +323,7 @@ function Services() {
                           >
                             <Eye size={18} />
                             <span className="hidden sm:inline ml-2 text-sm font-medium">
-                              View Details
+                              
                             </span>
                           </button>
 
@@ -307,7 +335,7 @@ function Services() {
                           >
                             <Pencil size={18} />
                             <span className="hidden sm:inline ml-2 text-sm font-medium">
-                              Edit
+                             
                             </span>
                           </button>
 
@@ -319,7 +347,7 @@ function Services() {
                           >
                             <Trash2 size={18} />
                             <span className="hidden sm:inline ml-2 text-sm font-medium">
-                              Delete
+                              
                             </span>
                           </button>
                         </div>
@@ -414,13 +442,14 @@ function Services() {
                   </p>
                 </div>
                 <div className="bg-gray-50 border border-gray-100 rounded-xl p-4">
-                  <p className="text-sm font-medium text-gray-700 mb-1">
-                    Icon
-                  </p>
-                  <p className="text-gray-600">
-                    {getIcon(selectedService.icon)}
-                  </p>
-                </div>
+                <p className="text-sm font-medium text-gray-700 mb-1">
+                  Price
+                 </p>
+                 <p className="text-gray-600">
+                  {selectedService.price} DH
+                 </p>
+              </div>
+
               </div>
             </div>
 

@@ -147,7 +147,7 @@ function Apropos() {
             className="mt-8 sm:mt-10 flex justify-center"
           >
             <Link
-              to="/Notre-agence"
+              to="/Apropos"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-500 to-violet-600 px-6 sm:px-7 py-3 text-white text-sm sm:text-base font-semibold shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               Découvrir Plus

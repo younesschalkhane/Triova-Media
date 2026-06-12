@@ -1,26 +1,26 @@
 import React from "react";
 import { Sparkles, Diamond, Triangle } from "lucide-react";
 
-function NotreAgence() {
+function Apropos() {
   const team = [
     {
-      name: "Youness",
-      role: "Founder & CEO",
+      name: " CHALKHANE Youness",
+      role: "Scrum Master",
       image: "youness.png",
     },
     {
       name: "EL ASBIHANI Hasnaa",
-      role: "Marketing Manager",
+      role: "Scrum Support",
       image: "hasnaa.png",
     },
     {
       name: "IDBRAHIM Fatiha",
-      role: "Lead Engineer",
+      role: "Developer",
       image: "fatiha.png",
     },
     {
       name: "SABRI Kaoutar",
-      role: "Product Designer",
+      role: "Developer",
       image: "Kaoutar.PNG",
     },
   ];
@@ -36,8 +36,8 @@ function NotreAgence() {
         <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
 
           <div>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-violet-50 text-violet-600 text-xs font-semibold tracking-widest uppercase mb-4">
-              Notre Agence
+            <span className="inline-block px-4 py-1.5 rounded-full border border-sky-100 bg-sky-50 text-violet-600 text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-4">
+              À propos
             </span>
 
 
@@ -71,7 +71,7 @@ function NotreAgence() {
       </section>
 
       {/* ================= MISSION STYLE 2 ================= */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white py-24 px-6">
+      <section className="relative overflow-hidden bg-gradient-to-br from-sky-100 via-violet-50 to-violet-100 py-24 px-6">
 
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-sky-100 rounded-full blur-3xl opacity-40" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-100 rounded-full blur-3xl opacity-30" />
@@ -87,11 +87,7 @@ function NotreAgence() {
 
         <div className="relative z-10 max-w-6xl mx-auto text-center">
 
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-medium mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-              <span className="relative h-2 w-2 rounded-full bg-sky-500"></span>
-            </span>
+          <span className="inline-block px-4 py-1.5 rounded-full border border-sky-100 bg-sky-50 text-violet-600 text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-8">
             Notre mission
           </span>
 
@@ -142,9 +138,12 @@ function NotreAgence() {
       </section>
 
       {/* ================= TEAM SECTION ================= */}
-      <section className="py-24 px-6 bg-gradient-to-br  from-sky-100 via-violet-50 to-violet-100">
+      <section className="relative py-24 px-6 overflow-hidden bg-white">
 
-        <div className="max-w-6xl mx-auto text-center mb-16">
+        <div className="pointer-events-none absolute top-20 right-0 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-10 left-0 h-80 w-80 rounded-full bg-violet-200/40 blur-3xl" />
+
+        <div className="relative max-w-6xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold ">
            <span className="text-sky-500">Notre</span>    <span className="text-violet-600">Équipe</span>
           </h2>
@@ -153,7 +152,7 @@ function NotreAgence() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+        <div className="relative grid gap-8 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
 
           {team.map((member) => (
             <div
@@ -183,4 +182,4 @@ function NotreAgence() {
   );
 }
 
-export default NotreAgence;
+export default Apropos;
