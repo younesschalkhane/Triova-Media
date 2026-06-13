@@ -36,3 +36,14 @@ export async function uploadServiceImage(file) {
   });
   return data;
 }
+
+export async function fetchActiveServices() {
+  const { data } = await axiosInstance.get("/api/services", {
+    params: {
+      status: "active",
+      limit: 100,
+    },
+  });
+
+  return data;
+}
