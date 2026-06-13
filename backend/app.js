@@ -1,14 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const contactRoutes = require("./routes/contactRoutes");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
-// Parse incoming JSON request bodies
-app.use(express.json());
-
-// Allow frontend applications to call this API
 app.use(
   cors({
     origin: process.env.CLIENT_URL || "*",
@@ -16,16 +13,18 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+app.use(express.json());
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// Health check — useful to verify the server is running
 app.get("/api/health", (req, res) => {
   res.status(200).json({ success: true, message: "Triova Media API is running" });
 });
 
-// Contact form routes: POST (submit) and GET (admin list)
 app.use("/api/contact", contactRoutes);
+app.use("/api/services", require("./routes/service.routes"));
+app.use("/api/devis", require("./routes/devis.routes"));
+app.use("/api/service-requests", require("./routes/serviceRequest.routes"));
 
-// 404 handler for unknown API routes
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -33,7 +32,6 @@ app.use((req, res) => {
   });
 });
 
-// Global error-handling middleware (must be last)
 app.use(errorHandler);
 
 module.exports = app;

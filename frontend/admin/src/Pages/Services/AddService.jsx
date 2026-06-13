@@ -1,24 +1,55 @@
 import React, { useState } from "react";
-import { Check, Plus } from "lucide-react";
+import { Check, Plus, Upload } from "lucide-react";
 import { serviceIcons, serviceIconOptions } from "./servicesData";
+import { uploadServiceImage } from "../../services/api/servicesApi";
+import toast from "react-hot-toast";
 
-function AddService({ onCancel, onSave }) {
-  const [name, setName] = useState("");
+function AddService({ onCancel, onSave, saving }) {
+  const [title, setTitle] = useState("");
+  const [slug, setSlug] = useState("");
+  const [shortDescription, setShortDescription] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [features, setFeatures] = useState("");
   const [icon, setIcon] = useState(serviceIconOptions[0]?.key || "code2");
-  const [price, setPrice] = useState("");
+  const [image, setImage] = useState("");
   const [status, setStatus] = useState("active");
+  const [price, setPrice] = useState("");
+  const [uploading, setUploading] = useState(false);
+
+  async function handleImageChange(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    try {
+      setUploading(true);
+      const response = await uploadServiceImage(file);
+      setImage(response.data.imageUrl);
+      toast.success("Image uploadée.");
+    } catch {
+      toast.error("Erreur lors de l'upload de l'image.");
+    } finally {
+      setUploading(false);
+    }
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    if (!name.trim()) return;
+    if (!title.trim()) return;
 
     onSave({
-      name: name.trim(),
+      title: title.trim(),
+      slug: slug.trim() || undefined,
+      shortDescription: shortDescription.trim(),
       description: description.trim(),
+      category: category.trim(),
+      price: Number(price) || 0,
+      features: features
+        .split("\n")
+        .map((f) => f.trim())
+        .filter(Boolean),
       icon,
-      price: price === "" ? 0 : Number(price),
+      image,
       status,
     });
   }
@@ -29,11 +60,9 @@ function AddService({ onCancel, onSave }) {
       role="dialog"
       aria-modal="true"
     >
-      <div className="bg-white rounded-xl shadow-lg w-full max-w-lg p-6">
+      <div className="bg-white rounded-xl shadow-lg w-full max-w-2xl p-6 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-violet-700">
-            Add Service
-          </h2>
+          <h2 className="text-xl font-bold text-violet-700">Add Service</h2>
           <button
             type="button"
             onClick={onCancel}
@@ -45,27 +74,41 @@ function AddService({ onCancel, onSave }) {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Name
-            </label>
-            <input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
-              placeholder="Ex: SEO"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Title
+              </label>
+              <input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                type="text"
+                className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
+                placeholder="Ex: SEO"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Slug (optional)
+              </label>
+              <input
+                value={slug}
+                onChange={(e) => setSlug(e.target.value)}
+                type="text"
+                className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
+                placeholder="Ex: seo-referencement"
+              />
+            </div>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Description
+              Short Description
             </label>
             <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              rows={4}
+              value={shortDescription}
+              onChange={(e) => setShortDescription(e.target.value)}
+              rows={2}
               className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
               placeholder="Short service description..."
             />
@@ -73,19 +116,82 @@ function AddService({ onCancel, onSave }) {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Prix (MAD)
+              Full Description
+            </label>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              rows={4}
+              className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              placeholder="Detailed service description..."
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Category
+            </label>
+            <input
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              type="text"
+              className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              placeholder="Ex: Création Site Web"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Price (MAD)
             </label>
             <input
               value={price}
-              onChange={(e) => {
-                const next = e.target.value.replace(/[^\d]/g, "");
-                setPrice(next);
-              }}
-              inputMode="numeric"
-              type="text"
+              onChange={(e) => setPrice(e.target.value)}
+              type="number"
+              min="0"
+              step="0.01"
               className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
-              placeholder="Ex: 2500"
+              placeholder="Ex: 1500"
             />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Features (one per line)
+            </label>
+            <textarea
+              value={features}
+              onChange={(e) => setFeatures(e.target.value)}
+              rows={4}
+              className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              placeholder={"Feature 1\nFeature 2\nFeature 3"}
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Image
+            </label>
+            <div className="flex items-center gap-4">
+              <label className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                <Upload size={18} />
+                {uploading ? "Uploading..." : "Upload Image"}
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="hidden"
+                  disabled={uploading}
+                />
+              </label>
+              {image ? (
+                <img
+                  src={image}
+                  alt="Preview"
+                  className="w-16 h-16 rounded-lg object-cover border"
+                />
+              ) : null}
+            </div>
           </div>
 
           <div>
@@ -116,7 +222,6 @@ function AddService({ onCancel, onSave }) {
                         }`}
                       />
                     ) : null}
-
                     {isSelected ? (
                       <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-violet-600 text-white flex items-center justify-center shadow">
                         <Check className="w-3 h-3" />
@@ -153,10 +258,10 @@ function AddService({ onCancel, onSave }) {
             <button
               type="submit"
               className="px-5 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition flex items-center gap-2 disabled:opacity-50"
-              disabled={!name.trim()}
+              disabled={!title.trim() || saving}
             >
               <Plus size={18} />
-              Save
+              {saving ? "Saving..." : "Save"}
             </button>
           </div>
         </form>
@@ -166,4 +271,3 @@ function AddService({ onCancel, onSave }) {
 }
 
 export default AddService;
-
