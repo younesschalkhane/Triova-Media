@@ -7,7 +7,8 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "nodemon --exec \"node --openssl-legacy-provider server.js\"",
+    "dev:direct": "node --openssl-legacy-provider server.js",
     "start": "node server.js",
     "seed:services": "node scripts/seedServices.js"
   },
