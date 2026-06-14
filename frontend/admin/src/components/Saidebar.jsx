@@ -14,7 +14,8 @@ import { getCurrentUser, hasPermission, logout } from "../auth/mockAuth";
 
 const menuItems = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard, superadminOnly: true },
-  { to: "/client", label: "Client", icon: Users, permission: "orders" },
+  { to: "/client", label: "Clients", icon: Users, permission: "orders" },
+  { to: "/client/demandes", label: "Demandes", icon: MessageSquare, permission: "orders" },
   { to: "/contact", label: "Contact", icon: MessageSquare, permission: "users" },
   { to: "/devis", label: "Devis", icon: FileText, permission: "devis" },
   { to: "/services", label: "Services", icon: Sparkles, permission: "services" },

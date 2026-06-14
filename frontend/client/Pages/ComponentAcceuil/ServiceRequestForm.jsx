@@ -1,37 +1,38 @@
 import React, { useState } from "react";
 import logo from "../../src/assets/triova.jpeg";
-import { useSearchParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { createServiceRequest } from "../../src/services/api/serviceRequestApi";
 
 export default function ServiceRequestForm() {
   const navigate = useNavigate();
-const [successMessage, setSuccessMessage] = useState("");
-
-
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const [searchParams] = useSearchParams();
 
-const selectedService = searchParams.get("service");
+  const selectedService = searchParams.get("service");
 
   const servicesList = [
-  "Programmation Web",
-  "Solutions AI",
-  "Identité Visuelle",
-  "ADS Marketing",
-  "Création AI",
-  "Social Media",
-  "SEO",
-];
+    "Programmation Web",
+    "Solutions AI",
+    "Identité Visuelle",
+    "ADS Marketing",
+    "Création AI",
+    "Social Media",
+    "SEO",
+  ];
+
   const [formData, setFormData] = useState({
-  fullName: "",
-  company: "",
-  email: "",
-  phone: "",
-  services: selectedService ? [selectedService] : [],
-  budget: "",
-  deadline: "",
-  description: "",
-});
+    fullName: "",
+    company: "",
+    email: "",
+    phone: "",
+    services: selectedService ? [selectedService] : [],
+    budget: "",
+    deadline: "",
+    description: "",
+  });
 
   const handleChange = (e) => {
     setFormData({
@@ -49,33 +50,44 @@ const selectedService = searchParams.get("service");
     }));
   };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessage("");
+    setSuccessMessage("");
 
-  if (formData.services.length === 0) {
-    alert("Veuillez sélectionner au moins un service.");
-    return;
-  }
+    if (formData.services.length === 0) {
+      setErrorMessage("Veuillez sélectionner au moins un service.");
+      return;
+    }
 
-  console.log(formData);
+    try {
+      setSubmitting(true);
+      await createServiceRequest(formData);
 
-  setSuccessMessage("Votre demande a été envoyée avec succès !");
+      setSuccessMessage("Votre demande a été envoyée avec succès !");
+      setFormData({
+        fullName: "",
+        company: "",
+        email: "",
+        phone: "",
+        services: [],
+        budget: "",
+        deadline: "",
+        description: "",
+      });
 
-  setFormData({
-    fullName: "",
-    company: "",
-    email: "",
-    phone: "",
-    services: [],
-    budget: "",
-    deadline: "",
-    description: "",
-  });
-
-  setTimeout(() => {
-    navigate("/");
-  }, 2000);
-};
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (error) {
+      const message =
+        error?.response?.data?.message ||
+        "Erreur lors de l'envoi de la demande. Veuillez réessayer.";
+      setErrorMessage(message);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-violet-50 py-10 px-4">
@@ -98,6 +110,12 @@ const handleSubmit = (e) => {
             Notre équipe Triova Media vous contactera rapidement.
           </p>
         </div>
+{errorMessage && (
+  <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-center text-red-700 font-medium shadow-sm">
+    ❌ {errorMessage}
+  </div>
+)}
+
 {successMessage && (
   <div className="mb-6 rounded-2xl border border-green-200 bg-green-50 px-4 py-3 text-center text-green-700 font-medium shadow-sm">
     ✅ {successMessage}

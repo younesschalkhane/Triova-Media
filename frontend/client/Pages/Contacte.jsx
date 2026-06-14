@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { submitContact } from "../src/services/api/contactApi";
 import logo from "../src/assets/logo1.png";
 export default function Contacte() {
   const [form, setForm] = useState({
@@ -8,15 +9,25 @@ export default function Contacte() {
     phone: "",
     message: "",
   });
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
-    alert("Message envoyé !");
+    setSubmitting(true);
+    try {
+      await submitContact(form);
+      alert("Votre message a été envoyé avec succès !");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      alert("Erreur lors de l'envoi du message. Veuillez réessayer.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
  

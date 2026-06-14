@@ -7,6 +7,7 @@ import Services from './Services/Services'
 import Contact from './Contact/Contact'
 import Client from './Client/Client'
 import DevisList from './Devis/DevisList'
+import DétailsClient from './Client/DétailsClient'
 
 function Markup() {
   return (
@@ -49,6 +50,14 @@ function Markup() {
           element={
             <PermissionRoute path="/client">
               <Client />
+            </PermissionRoute>
+          }
+        />
+        <Route
+          path="client/demandes"
+          element={
+            <PermissionRoute path="/client/demandes">
+              <DétailsClient />
             </PermissionRoute>
           }
         />
