@@ -5,7 +5,7 @@ import Dashboard from './Dashboard/Tableaubord'
 import Services from './Services/Services'
 import Contact from './Contact/Contact'
 import Devis from './Devis/DevisList'
-import Client from './Client/Client'
+
 
 
 function Markup() {
@@ -16,7 +16,7 @@ function Markup() {
         <Route path="services" element={<Services />} />
         <Route path="contact" element={<Contact />} />
         <Route path="devis" element={<Devis />} />
-        <Route path="client" element={<Client />} />
+        
       </Route>
     </Routes>
   )

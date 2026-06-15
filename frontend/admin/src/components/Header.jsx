@@ -1,9 +1,13 @@
 import React from 'react'
 import { Menu, Search, Bell } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+
 
  function Header({ setOpenSidebar }) {
+  const navigate = useNavigate();
   return (
-<<<<<<< HEAD
+
     <header className="h-[70px] bg-gradient-to-br from-violet-50 via-violet-100 to-sky-100 border-b border-gray-100 flex items-center justify-between px-6">
       <div className="flex items-center gap-4">
         <button
@@ -29,19 +33,18 @@ import { Menu, Search, Bell } from "lucide-react";
           <span className="absolute -top-1 -right-1 w-2 h-2 bg-pink-500 rounded-full"></span>
         </div>
 
-        <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold bg-gradient-to-r from-orange-400 to-pink-500">
-          A
-        </div>
+      <div
+  
+  className="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold bg-gradient-to-r from-orange-400 to-pink-500 cursor-pointer"
+>
+  A
+</div>
       </div>
     </header>
+  
+    
   );
-=======
-    <div>
-      <h1 >Admin Dashboard</h1>
-      
-    </div>
-  )
->>>>>>> 41eef6c711df4d6e90db6ae1c408f07f389a9b56
+
 }
 
 export default Header

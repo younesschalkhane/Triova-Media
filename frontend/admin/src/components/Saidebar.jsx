@@ -15,7 +15,7 @@ import logo from "./logo.jpeg";
 
 function Saidebar({ openSidebar, setOpenSidebar }) {
   return (
-<<<<<<< HEAD
+
     <>
       {/* Overlay */}
       {openSidebar && (
@@ -112,19 +112,8 @@ function Saidebar({ openSidebar, setOpenSidebar }) {
 
     </>
   );
-=======
-    <div>
-      <h2 >Triova</h2>
-      <ul >
-        <li><Link to="/">Dashboard</Link></li>
-        <li><Link to="/client" >Client</Link></li>
-        <li><Link to="/contact" >Contact</Link></li>
-        <li><Link to="/devis" >Devis</Link></li> 
-        <li><Link to="/services" >Services</Link></li>
-      </ul>
-    </div>
-  )
->>>>>>> 41eef6c711df4d6e90db6ae1c408f07f389a9b56
+
+    
 }
 
 
