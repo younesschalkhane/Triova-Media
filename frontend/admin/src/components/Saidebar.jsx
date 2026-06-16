@@ -19,11 +19,11 @@ import { getCurrentUser, hasPermission, logout } from "../auth/mockAuth";
  */
 const menuItems = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard, superadminOnly: true },
-  
-  { to: "/client/demandes", label: "Demandes", icon: MessageSquare, permission: "orders" },
-  
-  { to: "/devis", label: "Devis", icon: FileText, permission: "devis" },
   { to: "/services", label: "Services", icon: Sparkles, permission: "services" },
+  { to: "/devis", label: "Devis", icon: FileText, permission: "devis" },
+  { to: "/client/demandes", label: "Demandes", icon: MessageSquare, permission: "orders" },
+  { to: "/contact", label: "Contact", icon: Users, permission: "contact" },
+  
   { to: "/avis", label: "Avis Clients", icon: MessageSquare, permission: "services" },
 ];
 

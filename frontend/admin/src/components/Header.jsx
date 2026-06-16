@@ -132,7 +132,7 @@ function Header({ setOpenSidebar }) {
     <header
       className={`
         h-[80px] flex items-center justify-between px-4 sm:px-6
-        
+        fixed top-0 left-0 right-0 h-20 z-50
         transition-colors duration-300
         ${
           isDark

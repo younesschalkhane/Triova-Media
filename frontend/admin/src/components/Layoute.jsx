@@ -20,7 +20,7 @@ function Layoute() {
 
       <div className="flex-1 flex flex-col min-w-0 overflow-x-hidden">
         <Header setOpenSidebar={setOpenSidebar} />
-        <main className="flex-1  pt-[0px] lg:ml-64">
+        <main className="flex-1   lg:ml-64 pt-20">
           <Outlet />
         </main>
       </div>

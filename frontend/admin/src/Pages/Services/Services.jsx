@@ -284,9 +284,9 @@ function Services() {
                     <th className="p-4 text-left font-semibold text-gray-700">
                       Service
                     </th>
-                    <th className="p-4 text-left font-semibold text-gray-700">
+                    {/* <th className="p-4 text-left font-semibold text-gray-700">
                       Description
-                    </th>
+                    </th> */}
                     <th className="p-4 text-left font-semibold text-gray-700">
                       Prix
                     </th>
@@ -334,9 +334,9 @@ function Services() {
                             {service.title}
                           </td>
 
-                          <td className="p-4 text-gray-600">
+                          {/* <td className="p-4 text-gray-600">
                             {service.shortDescription}
-                          </td>
+                          </td> */}
 
                           <td className="p-4 text-gray-700 font-medium">
                             {service.price || 0} MAD
