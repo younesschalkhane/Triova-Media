@@ -228,8 +228,8 @@ function DétailsClient() {
         </div>
       </div>
 
-      {/* Statistics Cards */}
-      <div className="flex flex-wrap justify-around gap-6 mb-12">
+      {/* Statistics Cards - Flexbox avec alignement à gauche */}
+      <div className="flex flex-wrap justify-start gap-4 sm:gap-6 mb-8 sm:mb-12">
         {/* Total Requests */}
         <div className="w-100 group relative overflow-hidden rounded-2xl bg-white p-6 border border-slate-100 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
           <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-sky-500 to-violet-600 transition-all duration-500 group-hover:w-full" />

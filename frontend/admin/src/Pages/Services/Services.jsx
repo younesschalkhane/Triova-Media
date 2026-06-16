@@ -24,6 +24,7 @@ import {
   deleteService,
 } from "../../services/api/servicesApi";
 import toast from "react-hot-toast";
+import KPICard from "../../components/KPICard";
 
 function formatDate(isoDate) {
   try {
@@ -255,60 +256,10 @@ function Services() {
       </div>
 
       {/* Statistics Cards */}
-      <div className="flex flex-wrap justify-around gap-6 mb-12">
-        {/* Total Services */}
-        <div className="w-100 group relative overflow-hidden rounded-2xl bg-white p-6 border border-slate-100 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-          <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-sky-500 to-violet-600 transition-all duration-500 group-hover:w-full" />
-          <div className="relative flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-slate-500">
-                Total Services
-              </p>
-              <h2 className="mt-2 text-3xl font-bold bg-gradient-to-r from-violet-600 to-sky-500 bg-clip-text text-transparent">
-                {pagination.total}
-              </h2>
-            </div>
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-violet-600 to-sky-500 shadow-lg">
-              <PackageCheck className="h-7 w-7 text-white" />
-            </div>
-          </div>
-        </div>
-
-        {/* Active Services */}
-        <div className="w-100 group relative overflow-hidden rounded-2xl bg-white p-6 border border-slate-100 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-          <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-sky-500 to-violet-600 transition-all duration-500 group-hover:w-full" />
-          <div className="relative flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-slate-500">
-                Active Services
-              </p>
-              <h2 className="mt-2 text-3xl font-bold text-sky-600">
-                {stats.active}
-              </h2>
-            </div>
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-500 shadow-lg">
-              <Activity className="h-7 w-7 text-white" />
-            </div>
-          </div>
-        </div>
-
-        {/* Inactive Services */}
-        <div className="w-100 group relative overflow-hidden rounded-2xl bg-white p-6 border border-slate-100 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-          <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-sky-500 to-violet-600 transition-all duration-500 group-hover:w-full" />
-          <div className="relative flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-slate-500">
-                Inactive Services
-              </p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-700">
-                {stats.inactive}
-              </h2>
-            </div>
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-slate-500 to-slate-400 shadow-lg">
-              <Clock className="h-7 w-7 text-white" />
-            </div>
-          </div>
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 sm:mb-12">
+        <KPICard title="Total Services" value={pagination.total} icon={PackageCheck} color="from-violet-600 to-sky-500" />
+        <KPICard title="Active Services" value={stats.active} icon={Activity} color="from-sky-500 to-cyan-500" />
+        <KPICard title="Inactive Services" value={stats.inactive} icon={Clock} color="from-slate-500 to-slate-400" />
       </div>
 
       {/* Loading State */}

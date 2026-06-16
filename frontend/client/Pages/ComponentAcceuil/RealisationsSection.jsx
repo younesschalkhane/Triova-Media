@@ -264,7 +264,7 @@ export function RealisationsSection() {
         </div>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="cards-grid">
           {filtered.map((p) => (
             <div
               key={`${p.category}-${p.title}`}
