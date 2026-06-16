@@ -129,29 +129,31 @@ function Services() {
               return (
                 <div
                   key={service._id}
-                  className="group relative bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                  className="group relative bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
                 >
                   <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-sky-500 to-violet-600 flex items-center justify-center mb-6 shadow-md">
-                    <Icon className="w-7 h-7 text-white" />
+                  <div className="p-8 flex flex-col flex-1">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-sky-500 to-violet-600 flex items-center justify-center mb-6 shadow-md shrink-0">
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+
+                    <h3 className="text-xl font-semibold text-violet-600 mb-3">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-gray-600 text-sm leading-relaxed flex-1">
+                      {service.shortDescription}
+                    </p>
+
+                    <Link
+                      to={`/ServiceRequestForm?service=${encodeURIComponent(service.title)}&from=/`}
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-500 group-hover:text-violet-600 transition-colors"
+                    >
+                      Demander ce service
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
                   </div>
-
-                  <h3 className="text-xl font-semibold text-violet-600 mb-3">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {service.shortDescription}
-                  </p>
-
-                  <Link
-                    to={`/ServiceRequestForm?service=${encodeURIComponent(service.title)}`}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-500 group-hover:text-violet-600 transition-colors"
-                  >
-                    Demander ce service
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
                 </div>
               );
             })}

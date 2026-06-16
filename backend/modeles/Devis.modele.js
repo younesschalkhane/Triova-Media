@@ -58,6 +58,21 @@ const devisSchema = new mongoose.Schema(
       enum: ["En attente", "En cours", "Accepté", "Refusé"],
       default: "En attente",
     },
+    responded: {
+      type: Boolean,
+      default: false,
+    },
+    responseDate: {
+      type: Date,
+    },
+    responseSubject: {
+      type: String,
+      default: "",
+    },
+    responseMessage: {
+      type: String,
+      default: "",
+    },
   },
   { timestamps: true }
 );

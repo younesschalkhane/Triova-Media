@@ -7,10 +7,14 @@ dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
+    let uri = process.env.MONGO_URI;
+    
+    await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 10000,
       socketTimeoutMS: 45000,
       connectTimeoutMS: 10000,
+      retryWrites: true,
+      w: "majority",
     });
     console.log("MongoDB connecté avec succès");
   } catch (error) {

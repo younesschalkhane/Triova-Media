@@ -32,6 +32,12 @@ const contactSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+
+    // État de lecture pour le système de notifications
+    read: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
