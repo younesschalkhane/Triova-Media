@@ -14,6 +14,9 @@ router.get("/:id", devisController.getDevis);
 // PUT    /api/devis/:id    — admin updates status / fields
 router.put("/:id", devisController.updateDevis);
 
+// POST   /api/devis/:id/reply — admin replies to a devis request
+router.post("/:id/reply", devisController.replyDevis);
+
 // DELETE /api/devis/:id    — admin deletes a devis
 router.delete("/:id", devisController.deleteDevis);
 

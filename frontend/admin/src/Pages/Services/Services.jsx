@@ -48,7 +48,6 @@ function Services() {
     totalPages: 1,
     limit: 10,
   });
-  const [isOffline, setIsOffline] = useState(false);
 
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -72,7 +71,6 @@ function Services() {
   const loadServices = useCallback(async () => {
     try {
       setLoading(true);
-      setIsOffline(false);
       const response = await fetchServices({
         page,
         limit: 10,
@@ -82,14 +80,6 @@ function Services() {
       setServices(response.data || []);
       if (response.pagination) {
         setPagination(response.pagination);
-      }
-      // Detect offline mode: if pagination.totalPages === 1 and response came from fallback
-      // We check if the data ids start with 'fallback-'
-      const hasFallbackIds = Array.isArray(response.data) && 
-        response.data.length > 0 && 
-        response.data.some(s => String(s._id || s.id).startsWith('fallback-'));
-      if (hasFallbackIds) {
-        setIsOffline(true);
       }
     } catch (error) {
       const message =
@@ -320,24 +310,6 @@ function Services() {
           </div>
         </div>
       </div>
-
-      {/* Offline Mode Banner */}
-      {isOffline && (
-        <div className="mb-6 rounded-xl bg-amber-50 border border-amber-200 px-6 py-4 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-            <span className="text-amber-600 text-lg font-bold">⚠</span>
-          </div>
-          <div>
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-200 text-amber-800 border border-amber-300">
-              Mode Hors Ligne
-            </span>
-            <p className="mt-1 text-sm text-amber-700">
-              Le backend est indisponible. Les données affichées sont des données locales. 
-              Les actions d'ajout, modification et suppression sont désactivées.
-            </p>
-          </div>
-        </div>
-      )}
 
       {/* Loading State */}
       {loading ? (

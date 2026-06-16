@@ -25,7 +25,6 @@ import {
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { fetchActiveServices } from "../src/services/api/servicesApi";
-import servicesFallback from "../src/data/servicesFallback";
 
 const clientIcons = {
   code2: Code2,
@@ -155,11 +154,11 @@ function Services() {
           setServices(apiServices);
         } else {
           console.log("[Services] DB empty, using fallback");
-          setServices(servicesFallback);
+          setServices(getFallback());
         }
       } catch (err) {
         console.error("[Services] API error, using fallback:", err);
-        setServices(servicesFallback);
+        setServices(getFallback());
       } finally {
         setLoading(false);
       }
@@ -366,6 +365,123 @@ function Services() {
       </section>
     </div>
   );
+}
+
+function getFallback() {
+  return [
+    {
+      _id: "fallback-1",
+      title: "Programmation Web",
+      slug: "programmation-web",
+      shortDescription:
+        "Nous developpons des sites web modernes, rapides et entierement sur mesure pour repondre aux besoins specifiques de votre activite. Chaque projet est concu avec une attention particuliere portee a la performance, l'experience utilisateur et l'evolutivite.",
+      icon: "code2",
+      category: "Creation Site Web",
+      features: [
+        "Developpement front-end moderne et responsive",
+        "Interfaces fluides et optimisees UX/UI",
+        "Integration de fonctionnalites dynamiques",
+        "Code propre, scalable et maintenable",
+      ],
+      status: "active",
+    },
+    {
+      _id: "fallback-2",
+      title: "Solutions AI",
+      slug: "solutions-ai",
+      shortDescription:
+        "Nous developpons des solutions d'intelligence artificielle modernes, performantes et entierement adaptees aux besoins de votre activite. Chaque projet est concu avec une attention particuliere portee a l'automatisation, l'experience utilisateur et l'innovation digitale.",
+      icon: "brain",
+      category: "SOLUTIONS D'INTELLIGENCE ARTIFICIELLE",
+      features: [
+        "Developpement d'agents IA intelligents et automatises",
+        "Chatbots IA fluides et optimises UX/UI",
+        "Integration d'API IA et fonctionnalites avancees",
+        "Solutions scalables, securisees et maintenables",
+      ],
+      status: "active",
+    },
+    {
+      _id: "fallback-3",
+      title: "Identite Visuelle",
+      slug: "identite-visuelle",
+      shortDescription:
+        "Nous creons des identites visuelles modernes et memorables qui refletent parfaitement l'image et les valeurs de votre marque. Chaque creation est pensee pour garantir coherence, impact visuel et reconnaissance professionnelle.",
+      icon: "palette",
+      category: "IDENTITE VISUELLE",
+      features: [
+        "Creation de logos uniques et professionnels",
+        "Conception de chartes graphiques modernes",
+        "Design de supports marketing et reseaux sociaux",
+        "Identite visuelle coherente, creative et evolutive",
+      ],
+      status: "active",
+    },
+    {
+      _id: "fallback-4",
+      title: "ADS Marketing",
+      slug: "ads-marketing",
+      shortDescription:
+        "Nous creons des campagnes publicitaires digitalesperformantes pour developper votre visibilite, attirer de nouveaux clients et maximiser vos resultats. Chaque strategie est concue avec une approche orientee performance, conversion et croissance.",
+      icon: "megaphone",
+      category: "GOOGLE ADS et META ADS",
+      features: [
+        "Creation et gestion de campagnes Meta Ads et Google Ads",
+        "Ciblage precis et optimisation des performances",
+        "Visuels publicitaires modernes et impactants",
+        "Strategies marketing orientees conversion et ROI",
+      ],
+      status: "active",
+    },
+    {
+      _id: "fallback-5",
+      title: "Creation AI",
+      slug: "creation-ai",
+      shortDescription:
+        "Nous concevons des creations basees sur l'intelligence artificielle pour donner vie a vos idees avec innovation, rapidite et creativite. Chaque projet est pense pour offrir un rendu moderne, impactant et adapte a votre image de marque.",
+      icon: "sparkles",
+      category: "INTELLIGENCE ARTIFICIELLE",
+      features: [
+        "Generation de contenus visuels et designs par IA",
+        "Creation de videos et visuels publicitaires IA",
+        "Production de contenus creatifs pour reseaux sociaux",
+        "Solutions IA innovantes, rapides et personnalisees",
+      ],
+      status: "active",
+    },
+    {
+      _id: "fallback-6",
+      title: "Social Media",
+      slug: "social-media",
+      shortDescription:
+        "Strategie editoriale, production de contenu et community management. On transforme vos abonnes en ambassadeurs.",
+      icon: "share2",
+      category: "COMMUNAUTE ET ENGAGEMENT",
+      features: [
+        "Strategie et ligne editoriale",
+        "Production photo, video, motion",
+        "Community management 7j/7",
+        "Influence et partenariats createurs",
+      ],
+      status: "active",
+    },
+    {
+      _id: "fallback-7",
+      title: "SEO et Referencement",
+      slug: "seo-referencement",
+      shortDescription:
+        "Audit technique, strategie de contenu et optimisation SEO pour ameliorer votre visibilite sur Google.",
+      icon: "search",
+      category: "Visibilite Organique",
+      features: [
+        "Audit SEO technique complet",
+        "Recherche de mots-cles",
+        "Optimisation on-page",
+        "Strategie backlinks",
+      ],
+      status: "active",
+    },
+  ];
 }
 
 export default Services;

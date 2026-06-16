@@ -1,9 +1,30 @@
 const ServiceRequest = require("../modeles/ServiceRequest.modele");
+const Notification = require("../modeles/Notification.modele");
 
 // CREATE — client submits service request
+// Crée automatiquement une notification pour l'admin
 exports.createServiceRequest = async (req, res) => {
   try {
     const serviceRequest = await ServiceRequest.create(req.body);
+
+    // Créer une notification unifiée (avec protection contre les doublons)
+    try {
+      const existing = await Notification.findOne({ type: "service-request", sourceId: serviceRequest._id });
+      if (!existing) {
+        await Notification.create({
+          type: "service-request",
+          sourceId: serviceRequest._id,
+          sourceModel: "ServiceRequest",
+          title: `Demande de ${serviceRequest.fullName || "Client"}`,
+          subtitle: serviceRequest.email || "",
+          message: `Services: ${(serviceRequest.services || []).join(", ")}`,
+          link: "/client/demandes",
+        });
+      }
+    } catch (notifErr) {
+      console.error("Erreur création notification service-request:", notifErr.message);
+    }
+
     res.status(201).json(serviceRequest);
   } catch (err) {
     res.status(400).json({ message: err.message });

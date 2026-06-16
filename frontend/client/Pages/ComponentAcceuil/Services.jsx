@@ -3,7 +3,58 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { fetchActiveServices } from "../../src/services/api/servicesApi";
 import { getServiceIcon } from "../../src/utils/serviceIcons";
-import servicesFallback from "../../src/data/servicesFallback";
+
+const fallbackServices = [
+  {
+    _id: "fallback-1",
+    title: "Programmation Web",
+    shortDescription:
+      "Nous développons des sites web modernes, rapides et entièrement sur mesure pour répondre aux besoins spécifiques de votre activité.",
+    icon: "code2",
+  },
+  {
+    _id: "fallback-2",
+    title: "Solutions AI",
+    shortDescription:
+      "Nous développons des solutions d'intelligence artificielle modernes, performantes et entièrement adaptées aux besoins de votre activité.",
+    icon: "brain",
+  },
+  {
+    _id: "fallback-3",
+    title: "Identité Visuelle",
+    shortDescription:
+      "Nous créons des identités visuelles modernes et mémorables qui reflètent parfaitement l'image et les valeurs de votre marque.",
+    icon: "palette",
+  },
+  {
+    _id: "fallback-4",
+    title: "ADS Marketing",
+    shortDescription:
+      "Nous créons des campagnes publicitaires digitales performantes pour développer votre visibilité, attirer de nouveaux clients et maximiser vos résultats.",
+    icon: "megaphone",
+  },
+  {
+    _id: "fallback-5",
+    title: "Création AI",
+    shortDescription:
+      "Nous concevons des créations basées sur l'intelligence artificielle pour donner vie à vos idées avec innovation, rapidité et créativité.",
+    icon: "sparkles",
+  },
+  {
+    _id: "fallback-6",
+    title: "Social Media",
+    shortDescription:
+      "Stratégie éditoriale, production de contenu et community management. On transforme vos abonnés en ambassadeurs.",
+    icon: "share2",
+  },
+  {
+    _id: "fallback-7",
+    title: "SEO & Référencement",
+    shortDescription:
+      "Audit technique, stratégie de contenu et optimisation SEO pour améliorer votre visibilité sur Google.",
+    icon: "search",
+  },
+];
 
 function Services() {
   const [services, setServices] = useState([]);
@@ -20,11 +71,11 @@ function Services() {
         if (apiData.length > 0) {
           setServices(apiData);
         } else {
-          setServices(servicesFallback);
+          setServices(fallbackServices);
         }
       } catch {
         setError("Impossible de charger les services pour le moment.");
-        setServices(servicesFallback);
+        setServices(fallbackServices);
       } finally {
         setLoading(false);
       }

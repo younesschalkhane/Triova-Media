@@ -12,6 +12,9 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api/services", require("./routes/service.routes"));
 app.use("/api/devis", require("./routes/devis.routes"));
 app.use("/api/service-requests", require("./routes/serviceRequest.routes"));
+app.use("/api/reviews", require("./routes/review.routes"));
+app.use("/api/contact", require("./routes/contact.routes"));
+app.use("/api/notifications", require("./routes/notification.routes"));
 
 app.use((_req, res) => {
   res.status(404).json({
