@@ -76,7 +76,7 @@ function Apropos() {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-violet-600">4+</h3>
-                  <p className="text-sm text-slate-500">Experts</p>
+                  <p className="text-sm text-slate-500">Junior</p>
                 </div>
               </div>
             </motion.div>

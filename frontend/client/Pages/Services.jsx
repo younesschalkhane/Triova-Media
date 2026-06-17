@@ -230,9 +230,7 @@ function Services() {
             transition={{ duration: 0.8 }}
             className="text-center lg:text-left"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-sky-50 text-sky-500 text-xs font-semibold tracking-widest uppercase mb-4">
-              Nos Services
-            </span>
+            
 
             <h1 className="text-4xl md:text-5xl font-bold mt-6 leading-tight">
               <span className="text-sky-500">Des solutions digitales</span>
@@ -245,12 +243,14 @@ function Services() {
               votre présence digitale et booster votre activite.
             </p>
 
-            <Link to="/contact">
-              <button className="mt-8 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-violet-600 text-white hover:scale-105 transition duration-300 font-semibold shadow-md hover:shadow-xl">
+            <Link to="/ServiceRequestForm?from=/Services">
+              <button  className="mt-8 px-8 py-4 rounded-full bg-gradient-to-r from-sky-500 to-violet-600 text-white hover:scale-105 transition duration-300 font-semibold shadow-md hover:shadow-xl">
                 Demandez Votre Projet
               </button>
             </Link>
           </motion.div>
+
+
 
           <motion.div
             initial={{ x: 100, opacity: 0 }}
